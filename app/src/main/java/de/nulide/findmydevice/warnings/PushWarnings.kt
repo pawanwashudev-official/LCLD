@@ -17,7 +17,7 @@ fun shouldWarnUnifiedPushRequired(context: Context): Boolean {
         return false
     }
 
-    return !PushReceiver.isRegisteredWithUnifiedPush(context)
+    return false
 }
 
 fun notifyWarnUnifiedPushRequired(context: Context) {

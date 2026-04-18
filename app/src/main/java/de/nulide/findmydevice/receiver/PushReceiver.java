@@ -68,7 +68,7 @@ public class PushReceiver extends MessagingReceiver {
 
     public static void registerWithUnifiedPush(Context context) {
         if (isUnifiedPushAvailable(context)) {
-            UnifiedPush.registerAppWithDialog(context, ConstantsKt.INSTANCE_DEFAULT, new RegistrationDialogContent(), new ArrayList<>(), "");
+            UnifiedPush.registerApp(context, ConstantsKt.INSTANCE_DEFAULT, new ArrayList<>(), "");
         }
     }
 
