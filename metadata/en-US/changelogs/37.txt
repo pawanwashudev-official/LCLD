@@ -1,0 +1,8 @@
+0.13.0:
+- Replace "fmd.nulide.de" with "server.fmd-foss.org"
+- Format phone numbers in Allowed Contacts (!377)
+- Security: Enforce a minimum password/PIN length of 8 characters (!379)
+- Actively warn if UnifiedPush is missing (!394)
+- Fix regression from 0.12.0: Allow user CA certs again (#380)
+- Fix issues around settings import/export (!385)
+- Fix: Don't abort low battery location upload when regular upload is disabled (#318)

@@ -1,0 +1,6 @@
+0.4.0:
+- FMD Server: you can make instances private with a Registration Token. Requires FMD Server 0.5.0.
+- FMD Server: you can disable regular background location uploads (e.g. to save battery). You can still force a location upload via push.
+- OpenCelliD: you can test the API connection from within FMD. FMD also warns about the privacy risks of OpenCelliD.
+- Migrate from Camera2 to CameraX. This should fix many issues around taking pictures.
+- UI improvements and polishing

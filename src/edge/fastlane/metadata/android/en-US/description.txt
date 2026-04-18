@@ -1,0 +1,9 @@
+FMD edge is the "cutting edge" version of FMD.
+
+FMD edge receives updates faster, more often, and slightly earlier than FMD.
+FMD edge releases are generally stable and ready for day-to-day use.
+
+FMD allows you to locate and remotely control your Android device. This is useful if you have lost or misplaced it.
+FMD is decentralised, and users remain in full control of their data.
+
+For more details about FMD, see the project website (https://fmd-foss.org/docs/overview) or the F-Droid listing for the main FMD app (https://f-droid.org/packages/de.nulide.findmydevice/).

@@ -1,0 +1,3 @@
+0.9.0:
+- Add in-app setting for theme and dynamic colors (!182)
+- Fix crash in 'fmd locate last' (!219)

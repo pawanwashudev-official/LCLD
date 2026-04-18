@@ -1,0 +1,33 @@
+Ztratil jsem svůj nový mobil.
+A protože nepoužívám Služby Google, nemohl jsem ho najít a tudíž jsem ho nadobro ztratil.
+Aby se mi tato situace nestala znovu, vytvořil jsem tuto apliakci, abych mohl najít svůj mobil pomocí SMS.
+
+Funkce:
+
+- Nalezení zařízení (pomocí GPS nebo mobilní sítě)
+- Uzamčení zařízení
+- Prozvonění zařízení
+- Pořízení snímků okolí pomocí fotoaparátu zařízení
+- Tovární reset zařízení
+
+Použití:
+
+FMD (a tím pádem i své zařízení) můžete ovládat buď pomocí SMS, nebo pomocí Serveru FMD.
+Do zařízení můžete posílat příkazy (např. „fmd ring“) a zařízení je provede.
+
+Pro SMS můžete buď nastavit seznam důvěryhodných kontaktů (telefonních čísel), které jsou oprávněny posílat příkazy,
+nebo můžete nastavit PIN pro povolení anonymního použití.
+Nedůvěryhodná čísla poté mohou také odesílat příkazy, když zahrnout PIN ve zprávě.
+Toto je užitečné, protože pokud ztratíte své zařízení, můžete požádat náhodnou osobu, aby vám pomohla vzdáleně vymazat vaše zařízení.
+Pokud jednoduše odešlete vašemu zařízení „fmd“, odpoví telefon zprávou se seznamem dostupných příkazů.
+
+Se Serverem FMD navíc dostanete webové rozhraní pro posílání příkazů, zobrazení vašeho zařízení na mapě
+a pro zobrazení snímků pořízených zařízením.
+Server FMD si můžete sami hostovat.
+Další podrobnosti: https://gitlab.com/fmd-foss/fmd-server
+
+Upozornění:
+
+Tato aplikace je poskytována s vynaložením veškerého našeho úsilí.
+Doufáme, že je užitečná, sami ji používáme, ale jedná se o volnočasový projekt
+a nemůžeme zaručit, že bude fungovat, až ji budete nejvíce potřebovat.

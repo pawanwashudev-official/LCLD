@@ -1,0 +1,15 @@
+0.3.0:
+- Many UI/UX improvements
+- Add help in settings regarding push and OpenCelliD
+- Add monochrome app icon on Android 13
+- Fix notification permission not being requested on Android 13
+- Improved encryption
+
+0.3.1:
+- Fix encryption update boarding not shown on Android 13
+
+If you updated from 0.2.9 to 0.3.0 on Android 13, please manually
+(1) re-enter your FMD PIN in settings (if you use it), and
+(2) delete your old FMD Server account and register a new one (if you use FMD Server).
+This will manually migrate you. Sorry for the hassle.
+

@@ -1,0 +1,10 @@
+0.10.0:
+- Allow choosing custom usernames in FMD Server
+- Add server connectivity check
+- Show warning if the server version is lower than the minimum required server version
+- Show more push registration details
+- Disable background location upload by default
+- Edge-to-Edge display
+- Add "dryrun" flag to delete command
+- Export settings as ZIP
+- Misc fixes (see full changelog)

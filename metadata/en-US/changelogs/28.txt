@@ -1,0 +1,6 @@
+0.7.0:
+- In-App transport channel for testing (#135)
+- Request larger heap. This may fix the OOM crashes when hashing passwords/PINs on some devices. (#177, #190)
+- Fix crash with SMS on Android <= 11 (#229)
+- Show source in usage notification (phone number, app name, or FMD Server) (#230)
+- Fix default lock screen message from settings not being used (#231)

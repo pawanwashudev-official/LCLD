@@ -1,0 +1,33 @@
+Ma kaotasin oma telefoni.
+Ning kuna ma ei kasuta Google'i teenuseid, siis ma ei suutnud teda leida ja telefon oligi igaveseks kadunud.
+Lootusega, et sama ei juhtu tulevikus, võtsin ma ette selle rakenduse arendamise. Ma lihtsalt tahan oma telefoni leida tekstisõnumi abil.
+
+Mida sa saad telefoni või nutiseadmega teha:
+
+- tuvastad oma seadme asukoha (kas GPS-i või mobiilsidteenuste abil ning kui seadmes pole SIM-kaardi, siis tekstisõnumeid saata ei saa)
+- paned ta lukku
+- paned ta helisema
+- pildistad tema ümbrust ja saad aru, kus ta olla võib
+- käivitad kogu seadme sisu kustutamise
+
+Kasutus:
+
+Sa võid seda rakendust (ja seega ka oma telefoni/nutiseadet) juhtida tekstisõnumiga või FMD serverist.
+Sa võid telefonile saata käsu (nt. „fmd ring“) ja ta käivitab selle
+
+SMS-i jaoks võid sa määrata usaldusväärsete numbrite loendi ja siis vaid sealt võib käske jagada.
+Aga sa võid ka anonüümsema kasutuse jaoks määrata PIN-koodi.
+Siis saab igast mitteusaldusväärsest telefonist käske jagada, kui PIN-kood on käsule lisatud.
+Sellisest võimalusest on kasu, kui kaotad telefoni ja saad esimeselt möödujalt paluda võimalust saata tema telefonilt käsu kõikide andmete eemalt kustutamiseks.
+Aga kui lihtsalt saadad oma telefonile „fmd“ käsu, siis FMD rakendus vastab saadavalolevate käskude loendiga.
+
+Kui kasutad FMD serverit, siis on sul mugav kasutajaliides käskude saatmiseks, asukoha vaatamiseks kaardil
+ja nutiseadme ümbrusest piltide tegemiseks.
+FMD Serveri saad ka enda jaoks tööle panna mõnda sulle sobilikku serverisse.
+Lisateavet leiad siit: https://gitlab.com/fmd-foss/fmd-server
+
+Lahtiütlus vastutusest:
+
+See rakendus on täpselt nii hea, kuivõrd me suutsime ta heaks teha.
+Me loodame, et temast on kasu. Kasutame teda isegi igapäevaselt, aga ikkagi on tegemist hobiprojektiga
+ja me ei saa tagada, et ta töötab täpselt nagu vaja just siis, kui on vaja.

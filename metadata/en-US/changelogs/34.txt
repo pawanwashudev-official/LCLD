@@ -1,0 +1,6 @@
+0.11.0:
+- BREAKING: Improved FMD Server protocol. FMD Server 0.9.0 or later is required!
+- BREAKING: Change the way on-device PIN verification is done (for SMS and Notification Reply) (!287)
+  This improves performance. However, during the app upgrade the PIN is reset and you need to configure it again!
+- Predictive back gestures on Android 15 (!306, by @GitGitro)
+- Bug fixes and tweaks around background jobs and location auto-on/off (!288)

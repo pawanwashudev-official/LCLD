@@ -1,0 +1,7 @@
+0.14.1:
+- Add "fused" option to regular background location upload
+- Fix: Don't attempt "low battery upload" when no FMD Server account exists (#387)
+- Allow selecting multiple Allowed Contacts at once (#386).
+  Note: this must be supported by your contacts app.
+- Fix notification reply executing command more than once (#390)
+- Fixes and refactoring

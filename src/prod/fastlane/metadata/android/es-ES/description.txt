@@ -1,0 +1,33 @@
+Perdí mi nuevo teléfono.
+Y como no utilizo los servicios de Google no pude localizarlo y mi teléfono se había ido para siempre.
+Con la esperanza de que esto no vuelva a suceder, desarrollé esta aplicación, para poder localizar el teléfono a través de SMS.
+
+Características:
+
+- Localizar el dispositivo (usando localización GPS o celular)
+- Bloquea el dispositivo.
+- Deja que suene el dispositivo
+- Tomar fotos con la cámara del dispositivo para ver su entorno
+- Restablecimiento de fábrica del dispositivo
+
+Uso:
+
+Puede controlar FMD (y por lo tanto su teléfono) ya sea a través de SMS o vía FMD Server.
+Usted envía un comando al teléfono (por ejemplo, "fmd ring") y el teléfono lo ejecuta.
+
+Para SMS puede definir una lista de contactos de confianza (números de teléfono) a los que se les permite enviar comandos.
+O puede establecer un PIN para permitir el uso anónimo.
+Entonces los números de teléfono no confiables también pueden enviar comandos incluyendo el PIN en el mensaje.
+Esto es útil porque ahora, si pierdes el teléfono, puedes pedirle a una persona al azar que te ayude a borrarlo de forma remota.
+Si simplemente envía un mensaje de texto "fmd" a su teléfono FMD responderá con un texto en el que se enumeran los comandos disponibles.
+
+Con FMD Server usted obtiene una interfaz web para enviar comandos, para ver la ubicación de su dispositivo en un mapa,
+y para ver las imágenes tomadas por el dispositivo.
+Usted puede auto-host FMD Server.
+Para más detalles, véase: https://gitlab.com/fmd-foss/fmd-server
+
+Descargo de responsabilidad:
+
+Esta aplicación se proporciona sobre la base de un mejor esfuerzo.
+Esperamos que sea útil, lo usamos nosotros mismos, pero este es un proyecto de hobby
+y no podemos garantizar que funcione cuando más lo necesite.

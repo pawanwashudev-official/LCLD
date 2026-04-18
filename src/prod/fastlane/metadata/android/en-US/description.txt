@@ -1,0 +1,33 @@
+I lost my new phone.
+And because I don't use Google Services I couldn't locate it and my phone was gone for good.
+In the hope that this doesn't happen again, I developed this application, so that I can locate the phone via SMS.
+
+Features:
+
+- Locate the device (using GPS or cellular location)
+- Lock the device
+- Let the device ring
+- Take pictures with the device's camera to see its surroundings
+- Factory-reset the device
+
+Usage:
+
+You can control FMD (and thus your phone) either via SMS or via FMD Server.
+You send a command to the phone (e.g. "fmd ring") and the phone executes it.
+
+For SMS you can either define a list of trusted contacts (phone numbers) that are allowed to send commands.
+Or you can set a PIN to allow anonymous usage.
+Then non-trusted phone numbers can also send commands by including the PIN in the message.
+This is useful because now if you lose your phone, you can ask a random person for help to wipe your phone remotely.
+If you simply text "fmd" to your phone FMD will reply with a text listing the available commands.
+
+With FMD Server you get a web interface to send commands, to view the location of your device on a map,
+and to view pictures taken by the device.
+You can self-host FMD Server.
+For more details, see: https://gitlab.com/fmd-foss/fmd-server
+
+Disclaimer:
+
+This app is provided on a best effort basis.
+We hope it is useful, we use it ourselves, but this is a hobby project
+and we can't guarantee that it will work when you need it the most.

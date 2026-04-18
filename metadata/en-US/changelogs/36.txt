@@ -1,0 +1,14 @@
+0.12.1:
+- Fix "fmd locate cell" returning outdated data (#361)
+
+0.12.0:
+- Add "ringermode" command (#341)
+- Add BeaconDB as a second cell location provider (#224)
+- Include accuracy, altitude, bearing, and speed in returned locations, if available (#307, #346)
+- Nudge users to enable server connectivity check (!349)
+- Security: opt in to Arm MTE (!348)
+- Security: require certs to be in CT logs on Android 16+ (!345)
+- Fix: Don't exclude FMD from phone backups (#353)
+- Fix log export sometimes being empty (#352)
+- Fix IPv6 addresses not being shown in "stats" command (#328)
+- Other cleanup and bug fixes

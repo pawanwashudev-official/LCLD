@@ -1,0 +1,33 @@
+Ich habe mein neues Handy verloren.
+Und weil ich keine Google Services verwende, konnte ich es nicht orten und es war futsch.
+In der Hoffnung, dass das nicht nochmal passiert habe ich diese App geschrieben, sodass ich es über SMS orten kann.
+
+Features:
+
+- Gerät orten (mit GPS oder Mobilfunkzelle)
+- Gerät sperren
+- Gerät klingeln lassen
+- Bilder mit der Kamera machen, um die Umgebung des Geräts zu sehen
+- Gerät auf Werkseinstellungen zurücksetzen
+
+Benutzung:
+
+Du kannst FMD (und damit dein Gerät) entweder per SMS oder über FMD Server steuern.
+Sende einen Befehl (z.B. "fmd ring") und das Gerät wird ihn ausführen.
+
+Für SMS kannst du entweder eine Liste von vertrauenswürdigen Kontakten (Telefonnummern) definieren, die Befehle senden dürfen.
+Oder du kannst eine PIN festlegen, um anonyme Nutzung zu ermöglichen.
+Außerdem kannst du von auch nicht vertrauenswürdigen Telefonnummern Befehle senden, indem du die PIN in die SMS schreibst.
+Das ist nützlich, denn wenn du dein Telefon verlierst. Du kannst nun eine beliebige Person um Hilfe bitten, um dein Telefon aus der Ferne zu zurückzusetzen.
+Wenn du einfach "fmd" an dein Telefon schickst, antwortet FMD mit einer SMS, welche die verfügbaren Befehle auflistet.
+
+FMD Server ist ein Webinterface, um Befehle zu senden, den Standort des Geräts auf einer Karte anzuzeigen,
+und Bilder, die vom Gerät aufgenommen wurden, anzuschauen.
+Du kannst FMD Server selber hosten.
+Mehr Informationen siehe: https://gitlab.com/fmd-foss/fmd-server
+
+Hinweis:
+
+Diese App wird nach bestem Wissen und Gewissen entwickelt.
+Wir hoffen, dass sie nützlich ist, wir benutzen sie selbst, aber es ist ein Hobbyprojekt
+und wir können nicht garantieren, dass sie im Ernstfall funktioniert.

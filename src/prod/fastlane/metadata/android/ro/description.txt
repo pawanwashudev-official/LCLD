@@ -1,0 +1,37 @@
+Mi-am pierdut noul telefon.
+Și pentru că nu folosesc Google Services, nu l-am putut localiza și telefonul a dispărut definitiv.
+În speranța că asta nu se va mai întâmpla, am dezvoltat această aplicație, astfel încât să pot localiza telefonul prin SMS.
+
+Funcționalități:
+
+Localizarea dispozitivului (folosind GPS sau localizare celulară)
+
+Blocarea dispozitivului
+
+Redarea unui sunet pe dispozitiv
+
+Realizarea de fotografii cu camera dispozitivului pentru a vedea împrejurimile
+
+Resetarea dispozitivului la setările din fabrică
+
+Utilizare:
+
+Poți controla FMD (și astfel telefonul tău) fie prin SMS, fie prin serverul FMD.
+Trimiți o comandă către telefon (ex. „fmd ring”), iar telefonul o execută.
+
+Pentru SMS poți fie să definești o listă de contacte de încredere (numere de telefon) care au voie să trimită comenzi.
+Sau poți seta un PIN pentru a permite utilizarea anonimă.
+Astfel, numerele de telefon neautorizate pot trimite comenzi incluzând PIN-ul în mesaj.
+Acest lucru este util deoarece, dacă îți pierzi telefonul, poți cere ajutorul unei persoane la întâmplare pentru a șterge telefonul de la distanță.
+Dacă trimiți pur și simplu „fmd” către telefon, FMD va răspunde cu un mesaj text ce listează comenzile disponibile.
+
+Cu FMD Server primești o interfață web pentru a trimite comenzi, pentru a vizualiza locația dispozitivului pe o hartă
+și pentru a vizualiza fotografii realizate de dispozitiv.
+Poți găzdui singur FMD Server.
+Pentru mai multe detalii, vezi: https://gitlab.com/fmd-foss/fmd-server.
+
+Declinarea responsabilității:
+
+Această aplicație este oferită pe baza principiului „best effort”.
+Sperăm să fie utilă, o folosim și noi, dar este un proiect de hobby
+și nu putem garanta că va funcționa atunci când ai cea mai mare nevoie de ea.

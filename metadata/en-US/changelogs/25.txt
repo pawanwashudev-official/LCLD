@@ -1,0 +1,9 @@
+0.5.0:
+- Lots of translations (thanks to Weblate users!)
+- Added "eye buttons" to toggle password visibility
+- Enable backups of the files dir (if encrypted)
+- Allow granting WRITE_SECURE_SETTINGS directly in the app with root or Shizuku
+- Provide geo: URIs (and not just OSM links)
+- Fix: send OpenCelliD request only if API token is set
+- Pictures taken with "fmd camera" now use 720x1280 (or lower) instead of the phone's highest resolution (to make uploads faster)
+- Lots of internal cleanup

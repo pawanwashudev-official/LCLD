@@ -1,0 +1,4 @@
+0.7.1:
+- Show FMD Server connection status in settings (#212)
+- More helpful error messages
+- Fix usage via PIN (notification reply + SMS) not working (#244)

@@ -1,0 +1,13 @@
+0.6.0:
+- Redesign home screen to provide more user guidance (#135)
+- Material 3
+- Major internal rewrite. Please report any bugs!
+- Change app language (via System Settings, requires Android 13+)
+- Add phone number manually to Allowed Contacts (#171)
+- Request permissions to not be removed if app is unused (#168)
+- Mention Tower Collector as a way to contribute to OpenCelliD (#207, #222)
+- Don’t show big overlay on lock screen if the lock message is empty (from #196)
+- Fix crash with "fmd camera" affecting some devices (#215, #219)
+- Fix crash in "Test OpenCelliD Connection" when location permission was missing (#213)
+- Fixes around turning GPS on and off automatically (#64, #114, #175, #181)
+- Fix crash in CrashedActivity

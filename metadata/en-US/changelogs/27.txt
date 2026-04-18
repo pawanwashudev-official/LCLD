@@ -1,0 +1,8 @@
+0.6.1:
+- Fix crash when handling FMD Server pushes if app is not Device Admin and swiped away from Recent Apps (#225)
+
+0.6.0:
+- Redesign home screen to provide more user guidance (#135)
+- Material 3
+- Major internal rewrite. Please report any bugs!
+- Other features and fixes, see the full changelog

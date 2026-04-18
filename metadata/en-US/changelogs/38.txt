@@ -1,0 +1,7 @@
+0.14.0:
+- New command: "fmd flash" (#316)
+- New option: "fmd camera flash" (#316)
+- Execute commands with a foreground service to improve reliability
+- Improve reliability of "fmd locate gps"
+- Use a separate password for delete/factory-reset (#192)
+- `bluetooth` and `gps` commands return current state if argument is empty (!417)

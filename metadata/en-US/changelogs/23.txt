@@ -1,0 +1,13 @@
+0.3.0:
+- Many UI/UX improvements
+- Add help in settings regarding push and OpenCelliD
+- Add monochrome app icon on Android 13
+- Fix notification permission not being requested on Android 13
+- Improved encryption
+
+0.3.1:
+- Fix encryption update boarding not shown on Android 13
+
+0.3.2:
+- Fix being stuck in crypto update UI (how did we miss that?!?)
+

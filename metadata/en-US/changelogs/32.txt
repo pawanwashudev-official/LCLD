@@ -1,0 +1,6 @@
+0.9.1:
+- Add "copy" button to in-app transport notifications (!227)
+- Add confirmation dialog to server logout (!232)
+- Fix "fmd stats" not working (#257)
+- Fix regression: make "fmd" keyword case-insensitive again (#270)
+- Attempt to fix Comodification crash in LogRepository (#262)

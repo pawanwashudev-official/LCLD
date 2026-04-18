@@ -1,0 +1,9 @@
+0.8.0:
+- New command: 'bluetooth on|off' (#201)
+- Better logging view (#82)
+- Dual SIM support: automatically use the SIM that an SMS arrived on for sending the reply (#111)
+- In-App Language Picker (!206)
+- Fix low battery location upload not working on Android 14 / LineageOS 21 (#245)
+- Fix "fmd delete" not working (#188)
+- (Hopefully) improved GPS locating on Android 12+. It should get new locations more reliably (instead of returning cached locations). (!159)
+- Internal refactoring

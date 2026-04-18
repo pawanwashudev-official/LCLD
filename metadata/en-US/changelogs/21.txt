@@ -1,0 +1,6 @@
+- Many UI/UX improvements
+- Add help in settings regarding push and OpenCelliD
+- Add monochrome app icon on Android 13
+- Fix notification permission not being requested on Android 13
+- Improved encryption
+

@@ -1,0 +1,31 @@
+Izgubil sem svoj nov telefon.
+In ker ne uporabljam Googlovih storitev, ga nisem mogel najti in moj telefon je bil za vedno izgubljen.
+V upanju, da se to ne bo več zgodilo, sem razvil to aplikacijo, da lahko preko SMS sporočila ali FMD strežnika poiščem svoj telefon.
+
+Glavne funkcionalnosti aplikacije:
+
+- poiščite napravo (z uporabo GPS ali podatka o tem na katero bazno postajo je naprava povezana)
+- zaklenite napravo
+- naj naprava zazvoni
+- posnemite slike s kamero naprave, da vidite njeno okolico
+- ponastavite napravo na tovarniške nastavitve
+
+Uporaba:
+
+Aplikacijo FMD (in s tem svojo mobilno napravo) lahko upravljate preko SMS sporočil ali preko FMD strežnika.
+Mobilni napravi pošljete ukaz (npr. "fmd ring") in aplikacija FMD ta ukaz izvede.
+
+Za upravljanje preko SMS lahko določite seznam zaupanja vrednih stikov (telefonskih številk), ki jim je dovoljeno pošiljati ukaze.
+Lahko pa nastavite PIN, s pomočjo katerega bodo FMD ukaze lahko pošiljali tudi stiki, ki niso na seznamu zaupanja vrednih.
+To uporabno v primeru, ko svojo napravo izgubite, v bližini pa ni nobene osebe, katere telefonska številka je na seznamu zaupanja vrednih stikov. V tem primeru lahko za pomoč zaprosite naključno osebo in s pomočjo pravilne PIN kode npr. na daljavo izbrišete podatke na vašem telefonu.
+Če na vašo napravo pošljete sporočilo "fmd", bo aplikacija FMD odgovorila s seznamom razpoložljivih ukazov.
+
+S FMD strežnikom pa dobite možnost uporabe spletnega vmesnika za pošiljanje FMD ukazov, preko FMD strežnika si lahko ogledate lokacijo vaše naprave na zemljevidu, slike, ki jih je posnela naprava, itd.
+FMD strežnik je odprtokoden in ga lahko gostite sami, na svojem lastnem strežniku.
+Več o tem: https://gitlab.com/nulide/findmydeviceserver
+
+Izjava o zavrnitvi odgovornosti:
+
+Ta aplikacija ponujena takšna, kakršna je, in je bila razvita po naših najboljših močeh.
+Upamo, da bo aplikacija za vas uporabna, vendar se zavedajte, da je to hobi projekt,
+zato ne moremo zagotoviti, da bo zagotovo delovala, ko jo boste potrebovali.

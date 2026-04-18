@@ -1,0 +1,6 @@
+0.14.2:
+- Fix notification reply executing command more than once, attempt 2 (#390)
+- Fix notification reply not honoring the "FMD PIN enabled" checkbox setting (!445)
+- Fix FMD Server login failing on some ROMs (#389)
+- Make important dialogs non-cancellable (ignore clicks outside of dialog)
+- Dependency updates
