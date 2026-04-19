@@ -33,7 +33,7 @@
             <!-- Recommendations -->
 
             <TextView
-                style="@style/FMD.Text.SectionTitle"
+                style="@style/LCLD.Text.SectionTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
@@ -57,7 +57,7 @@
 
             <TextView
                 android:id="@+id/permissions_required_title"
-                style="@style/FMD.Text.SectionTitle"
+                style="@style/LCLD.Text.SectionTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/missing_permissions_title" />

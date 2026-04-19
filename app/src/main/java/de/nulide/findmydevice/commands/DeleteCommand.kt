@@ -85,7 +85,7 @@ class DeleteCommand(context: Context) : Command(context) {
             // See https://gitlab.com/Nulide/findmydevice/-/issues/199#note_1975457249
             // and https://gitlab.com/Nulide/findmydevice/-/issues/220
             try {
-                devicePolicyManager.wipeData(0)
+                devicePolicyManager.wipeDevice(0)
             } catch (e: Exception) {
                 context.log().e(TAG, e.stackTraceToString())
 
