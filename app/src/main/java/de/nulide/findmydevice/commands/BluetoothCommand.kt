@@ -54,8 +54,6 @@ class BluetoothCommand(context: Context) : Command(context) {
                 context.getString(R.string.cmd_bluetooth_response_is_off)
             }
             transport.send(context, msg)
-        } else if (Build.VERSION.SDK_INT >= 33) {
-            transport.send(context, "Bluetooth cannot be toggled silently on Android 13+ without Device Owner. Current state: ${if (bluetoothAdapter.isEnabled) "ON" else "OFF"}")
         } else if (args.contains("on")) {
             bluetoothAdapter.enable()
             transport.send(context, context.getString(R.string.cmd_bluetooth_response_on))
