@@ -26,6 +26,7 @@ fun availableCommands(context: Context): List<Command> {
         NoDisturbCommand(context),
         RingCommand(context),
         RingerModeCommand(context),
+        ProtectCommand(context),
         StatsCommand(context),
     )
     // FIXME: The HelpCommand does not know about itself

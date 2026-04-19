@@ -1,6 +1,7 @@
 package de.nulide.findmydevice.ui.home
 
 import android.view.View
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.Command
 import de.nulide.findmydevice.ui.setupPermissionsList
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import de.nulide.findmydevice.commands.CommandHandler
+import de.nulide.findmydevice.data.Settings
+import de.nulide.findmydevice.data.SettingsRepository
+import de.nulide.findmydevice.transports.InAppTransport
 
 
 class CommandListViewHolder(
@@ -46,5 +54,29 @@ class CommandListViewHolder(
         val permOptTitle = itemView.findViewById<TextView>(R.id.permissions_optional_title)
         val permOptList = itemView.findViewById<LinearLayout>(R.id.permissions_optional_list)
         setupPermissionsList(activity, permOptTitle, permOptList, item.optionalPermissions)
+
+        val testButton = itemView.findViewById<Button>(R.id.button_test_command)
+        if (item.keyword == "delete") {
+            testButton.visibility = View.GONE
+        } else {
+            testButton.visibility = View.VISIBLE
+            testButton.setOnClickListener {
+                CoroutineScope(Dispatchers.Main).launch {
+                    val triggerWord = SettingsRepository.getInstance(context).get(Settings.SET_FMD_COMMAND) as String
+
+                    // Simple split to get default required parameters if any
+                    val commandArgs = item.usage.split(" ")
+                    var rawCommand = "$triggerWord ${item.keyword}"
+                    if (commandArgs.size > 1 && commandArgs[1].startsWith("[")) {
+                        rawCommand += " " + commandArgs[1].replace("[", "").replace("]", "")
+                    } else if (item.keyword == "locate") {
+                        rawCommand += " gps"
+                    }
+
+                    val handler = CommandHandler(InAppTransport(context))
+                    handler.execute(context, rawCommand)
+                }
+            }
+        }
     }
 }

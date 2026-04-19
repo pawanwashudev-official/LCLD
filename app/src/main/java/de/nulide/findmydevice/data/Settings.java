@@ -41,6 +41,7 @@ public class Settings extends HashMap<Integer, Object> {
     public static final int SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME = 115;
     public static final int SET_FMDSERVER_LAST_CMD_MILLIS = 116;
     public static final int SET_FMD_EDGE_INFO_SHOWN = 117;
+    public static final int SET_FMDSERVER_ENABLE_PUSH = 118;
 
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS = 201;
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS = 202;
@@ -68,6 +69,9 @@ public class Settings extends HashMap<Integer, Object> {
     public static final String VAL_THEME_LIGHT = "light";
     public static final String VAL_THEME_DARK = "dark";
     public static final int SET_DYNAMIC_COLORS = 602;
+    public static final int SET_THEFT_MODE_ACTIVE = 603;
+    public static final int SET_OWNER_PHONE = 604;
+    public static final int SET_OWNER_EMAIL = 605;
 
     public Settings() {
     }
@@ -86,6 +90,8 @@ public class Settings extends HashMap<Integer, Object> {
                     //case SET_FMD_CRYPT_NEW_SALT:
                 case SET_UPDATEBOARDING_MODERN_CRYPTO_COMPLETED:
                 case SET_FMD_EDGE_INFO_SHOWN:
+                case SET_THEFT_MODE_ACTIVE:
+                case SET_FMDSERVER_ENABLE_PUSH:
                     return false;
                 case SET_FMD_LOW_BAT_SEND:
                     return true;
@@ -110,6 +116,8 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_FMD_CRYPT_PUBKEY:
                 case SET_FMDSERVER_URL:
                 case SET_FMDSERVER_PUSH_URL:
+                case SET_OWNER_PHONE:
+                case SET_OWNER_EMAIL:
                     return "";
                 case SET_FMDSERVER_LAST_CMD_MILLIS:
                     return 0;
