@@ -50,6 +50,7 @@ import de.nulide.findmydevice.utils.Utils;
 public class FMDServerActivity extends FmdActivity implements CompoundButton.OnCheckedChangeListener, TextWatcher {
 
     private SettingsRepository settings;
+    private MaterialSwitch switchEnablePush;
     private FMDServerApiRepository fmdServerRepo;
 
     private EditText editTextCheckInterval;
@@ -73,6 +74,25 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         setupEdgeToEdgeScrollView(findViewById(R.id.scrollView));
 
         settings = SettingsRepository.Companion.getInstance(this);
+
+        switchEnablePush = findViewById(R.id.switchEnablePush);
+        if (switchEnablePush != null) {
+            Object pushEnabledObj = settings.get(Settings.SET_FMDSERVER_ENABLE_PUSH);
+            boolean pushEnabled = true;
+            if (pushEnabledObj != null && pushEnabledObj instanceof Boolean) {
+                pushEnabled = (Boolean) pushEnabledObj;
+            }
+            switchEnablePush.setChecked(pushEnabled);
+            switchEnablePush.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                settings.set(Settings.SET_FMDSERVER_ENABLE_PUSH, isChecked);
+                if (isChecked) {
+                    PushReceiver.registerWithUnifiedPush(this);
+                } else {
+                    PushReceiver.unregisterWithUnifiedPush(this);
+                }
+                checkPushRegistration();
+            });
+        }
         fmdServerRepo = FMDServerApiRepository.Companion.getInstance(new FMDServerApiRepoSpec(this));
 
         TextView textViewServerUrl = findViewById(R.id.textViewServerUrl);
@@ -410,8 +430,16 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     }
 
     private void checkPushRegistration() {
-        if (!PushReceiver.isRegisteredWithUnifiedPush(this)) {
+        Object pushEnabledObj = settings.get(Settings.SET_FMDSERVER_ENABLE_PUSH);
+        boolean pushEnabled = true;
+        if (pushEnabledObj != null && pushEnabledObj instanceof Boolean) {
+            pushEnabled = (Boolean) pushEnabledObj;
+        }
+
+        if (pushEnabled && !PushReceiver.isRegisteredWithUnifiedPush(this)) {
             PushReceiver.registerWithUnifiedPush(this);
+        } else if (!pushEnabled) {
+            PushReceiver.unregisterWithUnifiedPush(this);
         }
 
         LinearLayout sectionPushDistributor = findViewById(R.id.sectionPushDistributor);

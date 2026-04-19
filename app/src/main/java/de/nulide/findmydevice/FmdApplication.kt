@@ -72,7 +72,7 @@ class FmdApplication : Application() {
             ServerLocationUploadService.cancelJob(this)
             ServerConnectivityCheckService.cancelJob(this)
 
-            PushReceiver.unregisterWithUnifiedPush(this)
+            if (settings.get(Settings.SET_FMDSERVER_ENABLE_PUSH) as Boolean) { PushReceiver.unregisterWithUnifiedPush(this) }
         }
     }
 }

@@ -13,7 +13,7 @@ import de.nulide.findmydevice.utils.Utils.Companion.openUrl
 
 fun shouldWarnUnifiedPushRequired(context: Context): Boolean {
     val settings = SettingsRepository.getInstance(context)
-    if (!settings.serverAccountExists()) {
+    if (!settings.serverAccountExists() || !(settings.get(de.nulide.findmydevice.data.Settings.SET_FMDSERVER_ENABLE_PUSH) as Boolean)) {
         return false
     }
 

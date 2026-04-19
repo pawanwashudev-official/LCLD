@@ -117,7 +117,7 @@ public class MainActivity extends FmdActivity {
 
             // This must be cannot be in the FmdApplication because it needs an Activity context,
             // because it might show a dialog to choose between different distributors.
-            PushReceiver.registerWithUnifiedPush(this);
+            if ((Boolean) settings.get(Settings.SET_FMDSERVER_ENABLE_PUSH)) { PushReceiver.registerWithUnifiedPush(this); }
         }
         if (PushWarningsKt.shouldWarnUnifiedPushRequired(this)) {
             PushWarningsKt.dialogWarnUnifiedPushRequired(this);

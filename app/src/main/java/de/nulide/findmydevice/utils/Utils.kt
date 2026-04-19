@@ -52,7 +52,7 @@ class Utils {
 
         @JvmStatic
         fun getOpenStreetMapLink(lat: Double, lon: Double): String {
-            return "https://www.openstreetmap.org/?mlat=$lat&mlon=$lon&zoom=14"
+            return "https://maps.google.com/maps?q=$lat,$lon"
         }
 
         fun getBatteryLevel(context: Context): Int {
