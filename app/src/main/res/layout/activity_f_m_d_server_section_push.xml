@@ -22,6 +22,15 @@
         android:layout_height="wrap_content"
         android:text="@string/Settings_FMDServer_Push_Description" />
 
+    <!-- Push Enable/Disable -->
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switchEnablePush"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="Enable External Push Service" />
+
     <LinearLayout
         android:id="@+id/sectionPushDistributor"
         android:layout_width="match_parent"
