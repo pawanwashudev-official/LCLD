@@ -5,7 +5,7 @@ plugins {
 
 android {
     compileSdk 36
-    namespace 'com.neubofy.lcld'
+    namespace 'de.nulide.findmydevice'
     packagingOptions {
         resources {
             excludes += ['META-INF/LICENSE.md', 'META-INF/NOTICE.md', 'META-INF/versions/9/OSGI-INF/MANIFEST.MF']
