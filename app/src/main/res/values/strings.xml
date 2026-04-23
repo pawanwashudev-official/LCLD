@@ -179,6 +179,15 @@
     <string name="appearance_theme_light">Light</string>
     <string name="appearance_theme_dark">Dark</string>
     <string name="appearance_dynamic_colors">Dynamic colors</string>
+    <string name="appearance_color_profile">Color profile</string>
+    <string name="appearance_color_profile_choose">Choose color profile</string>
+    <string name="appearance_color_profile_default">Default green</string>
+    <string name="appearance_color_profile_rose">Rose</string>
+    <string name="appearance_color_profile_orange">Orange</string>
+    <string name="appearance_color_profile_lime">Lime</string>
+    <string name="appearance_color_profile_teal">Teal</string>
+    <string name="appearance_color_profile_indigo">Indigo</string>
+    <string name="appearance_color_profile_violet">Violet</string>
 
     <!-- Settings: Logs -->
     <string name="log_view_title">Logs</string>

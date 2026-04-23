@@ -68,6 +68,14 @@ public class Settings extends HashMap<Integer, Object> {
     public static final String VAL_THEME_LIGHT = "light";
     public static final String VAL_THEME_DARK = "dark";
     public static final int SET_DYNAMIC_COLORS = 602;
+    public static final int SET_COLOR_PROFILE = 603;
+    public static final String VAL_COLOR_PROFILE_DEFAULT = "default";
+    public static final String VAL_COLOR_PROFILE_ROSE = "rose";
+    public static final String VAL_COLOR_PROFILE_ORANGE = "orange";
+    public static final String VAL_COLOR_PROFILE_LIME = "lime";
+    public static final String VAL_COLOR_PROFILE_TEAL = "teal";
+    public static final String VAL_COLOR_PROFILE_INDIGO = "indigo";
+    public static final String VAL_COLOR_PROFILE_VIOLET = "violet";
 
     public Settings() {
     }
@@ -125,6 +133,8 @@ public class Settings extends HashMap<Integer, Object> {
                     return VAL_THEME_FOLLOW_SYSTEM;
                 case SET_DYNAMIC_COLORS:
                     return false;
+                case SET_COLOR_PROFILE:
+                    return VAL_COLOR_PROFILE_DEFAULT;
 
                 case SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS:
                     return 0L;

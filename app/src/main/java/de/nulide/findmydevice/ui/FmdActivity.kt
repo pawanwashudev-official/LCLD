@@ -21,6 +21,7 @@ abstract class FmdActivity : AppCompatActivity() {
 
         settings = SettingsRepository.getInstance(this)
 
+        applyColorProfile()
         applyTheme()
         applyDynamicColors()
 
@@ -37,6 +38,21 @@ abstract class FmdActivity : AppCompatActivity() {
         if (toolbar != null) {
             setSupportActionBar(toolbar)
         }
+    }
+
+    fun applyColorProfile() {
+        val profile = settings.get(Settings.SET_COLOR_PROFILE) as String
+
+        val themeRes = when (profile) {
+            Settings.VAL_COLOR_PROFILE_ROSE -> R.style.Theme_Fmd_Spectrum_Rose
+            Settings.VAL_COLOR_PROFILE_ORANGE -> R.style.Theme_Fmd_Spectrum_Orange
+            Settings.VAL_COLOR_PROFILE_LIME -> R.style.Theme_Fmd_Spectrum_Lime
+            Settings.VAL_COLOR_PROFILE_TEAL -> R.style.Theme_Fmd_Spectrum_Teal
+            Settings.VAL_COLOR_PROFILE_INDIGO -> R.style.Theme_Fmd_Spectrum_Indigo
+            Settings.VAL_COLOR_PROFILE_VIOLET -> R.style.Theme_Fmd_Spectrum_Violet
+            else -> R.style.Theme_Fmd
+        }
+        setTheme(themeRes)
     }
 
     fun applyTheme() {

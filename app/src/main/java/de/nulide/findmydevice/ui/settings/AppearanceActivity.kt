@@ -46,6 +46,7 @@ class AppearanceActivity : FmdActivity() {
         }
 
         setupTheme()
+        setupColorProfile()
         setupDynamicColors()
     }
 
@@ -135,6 +136,45 @@ class AppearanceActivity : FmdActivity() {
                     if (idx != checkedIdx) {
                         val new = options[idx]
                         settings.set(Settings.SET_THEME, new)
+                        recreate()
+                    }
+                }
+                .show()
+        }
+    }
+
+
+    fun setupColorProfile() {
+        val current = settings.get(Settings.SET_COLOR_PROFILE) as String
+
+        val options = arrayOf(
+            Settings.VAL_COLOR_PROFILE_DEFAULT,
+            Settings.VAL_COLOR_PROFILE_ROSE,
+            Settings.VAL_COLOR_PROFILE_ORANGE,
+            Settings.VAL_COLOR_PROFILE_LIME,
+            Settings.VAL_COLOR_PROFILE_TEAL,
+            Settings.VAL_COLOR_PROFILE_INDIGO,
+            Settings.VAL_COLOR_PROFILE_VIOLET,
+        )
+        val labels = arrayOf(
+            getString(R.string.appearance_color_profile_default),
+            getString(R.string.appearance_color_profile_rose),
+            getString(R.string.appearance_color_profile_orange),
+            getString(R.string.appearance_color_profile_lime),
+            getString(R.string.appearance_color_profile_teal),
+            getString(R.string.appearance_color_profile_indigo),
+            getString(R.string.appearance_color_profile_violet),
+        )
+
+        val checkedIdx = options.indexOfFirst { it == current }
+        viewBinding.textViewColorProfile.text = labels[if (checkedIdx >= 0) checkedIdx else 0]
+
+        viewBinding.buttonEditColorProfile.setOnClickListener {
+            MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.appearance_color_profile_choose)
+                .setSingleChoiceItems(labels, checkedIdx) { _, idx ->
+                    if (idx != checkedIdx) {
+                        settings.set(Settings.SET_COLOR_PROFILE, options[idx])
                         recreate()
                     }
                 }

@@ -54,4 +54,36 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
+
+    <style name="Theme.Fmd.Spectrum.Rose" parent="Theme.Fmd">
+        <item name="colorPrimary">#A20E5A</item>
+        <item name="colorPrimaryContainer">#FFD8E9</item>
+    </style>
+
+    <style name="Theme.Fmd.Spectrum.Orange" parent="Theme.Fmd">
+        <item name="colorPrimary">#A14500</item>
+        <item name="colorPrimaryContainer">#FFDCC8</item>
+    </style>
+
+    <style name="Theme.Fmd.Spectrum.Lime" parent="Theme.Fmd">
+        <item name="colorPrimary">#3A7000</item>
+        <item name="colorPrimaryContainer">#CCF79E</item>
+    </style>
+
+    <style name="Theme.Fmd.Spectrum.Teal" parent="Theme.Fmd">
+        <item name="colorPrimary">#006A67</item>
+        <item name="colorPrimaryContainer">#9CF1EC</item>
+    </style>
+
+    <style name="Theme.Fmd.Spectrum.Indigo" parent="Theme.Fmd">
+        <item name="colorPrimary">#3F51B5</item>
+        <item name="colorPrimaryContainer">#DDE1FF</item>
+    </style>
+
+    <style name="Theme.Fmd.Spectrum.Violet" parent="Theme.Fmd">
+        <item name="colorPrimary">#6A1B9A</item>
+        <item name="colorPrimaryContainer">#F0DBFF</item>
+    </style>
+
 </resources>
