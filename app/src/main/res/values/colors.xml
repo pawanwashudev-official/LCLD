@@ -9,10 +9,10 @@
 
     <!-- Generated with https://material-foundation.github.io/material-theme-builder/ -->
 
-    <color name="md_theme_primary">#006E1C</color>
-    <color name="md_theme_onPrimary">#FFFFFF</color>
-    <color name="md_theme_primaryContainer">#59BD5B</color>
-    <color name="md_theme_onPrimaryContainer">#002304</color>
+    <color name="md_theme_primary">#D4AF37</color>
+    <color name="md_theme_onPrimary">#1A1300</color>
+    <color name="md_theme_primaryContainer">#3A2F0B</color>
+    <color name="md_theme_onPrimaryContainer">#F8E7A5</color>
     <color name="md_theme_secondary">#005E0C</color>
     <color name="md_theme_onSecondary">#FFFFFF</color>
     <color name="md_theme_secondaryContainer">#278627</color>
@@ -25,10 +25,10 @@
     <color name="md_theme_onError">#FFFFFF</color>
     <color name="md_theme_errorContainer">#FFDAD6</color>
     <color name="md_theme_onErrorContainer">#410002</color>
-    <color name="md_theme_background">#F5FBEF</color>
-    <color name="md_theme_onBackground">#171D16</color>
-    <color name="md_theme_surface">#F5FBEF</color>
-    <color name="md_theme_onSurface">#171D16</color>
+    <color name="md_theme_background">#0B0B0B</color>
+    <color name="md_theme_onBackground">#F6E7B0</color>
+    <color name="md_theme_surface">#121212</color>
+    <color name="md_theme_onSurface">#F7EAC1</color>
     <color name="md_theme_surfaceVariant">#DAE6D4</color>
     <color name="md_theme_onSurfaceVariant">#3F4A3C</color>
     <color name="md_theme_outline">#6F7A6B</color>
@@ -53,8 +53,8 @@
     <color name="md_theme_surfaceBright">#F5FBEF</color>
     <color name="md_theme_surfaceContainerLowest">#FFFFFF</color>
     <color name="md_theme_surfaceContainerLow">#F0F6E9</color>
-    <color name="md_theme_surfaceContainer">#EAF0E4</color>
-    <color name="md_theme_surfaceContainerHigh">#E4EADE</color>
+    <color name="md_theme_surfaceContainer">#1A1A1A</color>
+    <color name="md_theme_surfaceContainerHigh">#232323</color>
     <color name="md_theme_surfaceContainerHighest">#DEE4D9</color>
     <color name="md_theme_primary_mediumContrast">#004F11</color>
     <color name="md_theme_onPrimary_mediumContrast">#FFFFFF</color>

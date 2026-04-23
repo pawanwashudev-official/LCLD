@@ -198,6 +198,12 @@
     <!-- Settings: About -->
     <string name="about">About</string>
     <string name="about_source_code">Source code</string>
+    <string name="about_app_long">LCLD helps you manage device permissions and remote transport channels from one secured home page. It supports remote locate/control flows while keeping setup transparent and easy to verify.</string>
+    <string name="about_dev_title">Developer</string>
+    <string name="about_dev_name">Pawan Washudev</string>
+    <string name="about_dev_email">pawanwashudev@gmail.com</string>
+    <string name="about_source_url">https://github.com/pawanwashudev-official/LCLD</string>
+
     <string name="about_wiki">Wiki</string>
     <string name="about_gratitude">LCLD (Locate &amp; Control Lost Device) developed by Pawan Washudev. \n\n❤️ HUGE THANKS to Nulide and the original Find My Device (FMD) team for their incredible open-source work which made this project possible.</string>
     <string name="app_description">LCLD (Locate &amp; Control Lost Device) allows you to remotely locate your device. You can communicate with LCLD over SMS, instant messengers, or using LCLD Server. Locate your device, make it ring, lock it, or wipe it - all from remote.</string>

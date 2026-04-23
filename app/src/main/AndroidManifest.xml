@@ -78,6 +78,12 @@
             android:name=".ui.SetupWarningsActivity"
             android:label="@string/setup_warnings_title" />
         <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:label="@string/Settings_Settings" />
+        <activity
+            android:name=".ui.AboutActivity"
+            android:label="@string/about" />
+        <activity
             android:name=".ui.settings.AppearanceActivity"
             android:label="@string/Settings_Appearance" />
         <activity
