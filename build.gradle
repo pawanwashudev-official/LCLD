@@ -17,9 +17,6 @@ buildscript {
     }
 }
 
-plugins {
-    id "com.mikepenz.aboutlibraries.plugin.android" version "13.2.1" apply false
-}
 
 allprojects {
     repositories {
