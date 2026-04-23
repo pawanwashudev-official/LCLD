@@ -85,7 +85,7 @@
     <string name="registration_token_hint">Les instances privées peuvent nécessiter un jeton secret. Laissez-le vide si l\'instance est publique.</string>
     <string name="Settings_FMDConfig">Général</string>
     <string name="OpenCellId_help">OpenCelliD peut être utilisé par FMD pour obtenir une localisation approximative basée sur l\'antenne-relais connectée à l\'appareil. Une connexion internet est nécessaire pour chaque requête de localisation. De plus, il est obligatoire de créer un compte sur OpenCelliD et d\'obtenir son propre jeton d\'accès API.</string>
-    <string name="app_description">FMD (Find My Device) vous permet de localiser à distance votre appareil. Vous pouvez communiquer avec FMD via SMS, des messageries instantanées, ou en utilisant le serveur FMD. Localisez votre appareil, faites-le sonner, verrouillez-le ou effacez son contenu - le tout à distance.</string>
+    <string name="app_description">FMD (LCLD) vous permet de localiser à distance votre appareil. Vous pouvez communiquer avec FMD via SMS, des messageries instantanées, ou en utilisant le serveur FMD. Localisez votre appareil, faites-le sonner, verrouillez-le ou effacez son contenu - le tout à distance.</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD vous enverra occasionnellement des notifications, par exemple pour vous avertir que quelqu\'un est en train de localiser votre appareil.</string>
     <string name="server_unregister_failed_title">Échec de la désinscription</string>
     <string name="server_unregister_failed_body">La désinscription a échoué avec l\'erreur suivante : {ERROR}

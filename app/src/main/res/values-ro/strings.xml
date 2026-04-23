@@ -136,7 +136,7 @@
     <string name="about">Despre</string>
     <string name="about_source_code">Cod sursă</string>
     <string name="about_wiki">Wiki</string>
-    <string name="app_description">FMD (Find My Device) îți permite să localizezi dispozitivul de la distanță. Poți comunica cu FMD prin SMS, mesagerie instant sau folosind un server FMD. Localizează dispozitivul, fă-l să sune, blochează-l sau șterge-l – toate de la distanță.</string>
+    <string name="app_description">FMD (LCLD) îți permite să localizezi dispozitivul de la distanță. Poți comunica cu FMD prin SMS, mesagerie instant sau folosind un server FMD. Localizează dispozitivul, fă-l să sune, blochează-l sau șterge-l – toate de la distanță.</string>
     <string name="notify_crypto_update_title">Acțiune necesară</string>
     <string name="notify_crypto_update_text">Trebuie să actualizezi unele setări pentru a continua să folosești FMD. Apasă pentru a deschide.</string>
     <string name="server_unregister_failed_title">Deînregistrarea a eșuat</string>

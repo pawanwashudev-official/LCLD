@@ -162,7 +162,7 @@
     <string name="log_view_export">匯出日誌</string>
     <string name="log_view_clear">清除日誌</string>
     <string name="log_view_clear_confirm">您確定要刪除所有日誌嗎？</string>
-    <string name="app_description">FMD（Find My Device）可讓您遠端定位您的裝置。您可以透過簡訊、即時通訊軟體，或使用 FMD 伺服器與 FMD 通訊。您可在遠端定位裝置、讓裝置響鈴、鎖定裝置，或清除裝置上的資料。</string>
+    <string name="app_description">FMD（LCLD）可讓您遠端定位您的裝置。您可以透過簡訊、即時通訊軟體，或使用 FMD 伺服器與 FMD 通訊。您可在遠端定位裝置、讓裝置響鈴、鎖定裝置，或清除裝置上的資料。</string>
     <string name="notify_crypto_update_text">您需要更新部分設定才能繼續使用 FMD。點擊以開啟設定。</string>
     <string name="server_unregister_failed_body">取消註冊失敗，發生以下錯誤：{ERROR}\n\n您仍可選擇繼續，但您的帳號可能尚未從伺服器刪除。若您繼續操作，該帳號將只會從此裝置上刪除。</string>
     <string name="update_pin_hash_change_text">FMD 的 PIN 已在應用程式更新期間被重設。若要繼續使用 PIN 方式操作 FMD，請重新設定 PIN。</string>

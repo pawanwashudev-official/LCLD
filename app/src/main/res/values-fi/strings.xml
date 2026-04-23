@@ -174,7 +174,7 @@
     <string name="perm_shizuku_failed">Käyttöoikeuden myöntäminen Shizukun kautta epäonnistui</string>
     <string name="transport_sms_title">SMS</string>
     <string name="cmd_camera_response_no_fmd_server">Kuvaa ei voitu ottaa: ei tiliä FMD-palvelimella.</string>
-    <string name="app_description">FMD (Find My Device) sallii sinun etäpaikantaa laitteesi. Voit kommunikoida FMD:n kanssa tekstiviestillä, pikaviestimillä tai FMD-palvelimen kautta. Paikanna laitteesi, laita se soimaan tai tyhjennä se - kaikki etänä.</string>
+    <string name="app_description">FMD (LCLD) sallii sinun etäpaikantaa laitteesi. Voit kommunikoida FMD:n kanssa tekstiviestillä, pikaviestimillä tai FMD-palvelimen kautta. Paikanna laitteesi, laita se soimaan tai tyhjennä se - kaikki etänä.</string>
     <string name="cmd_bluetooth_response_no_bluetooth">Laitteellasi ei ole Bluetoothia.</string>
     <string name="cmd_delete_response_failed">Laitetta ei voitu poistaa poikkeaman vuoksi.</string>
     <string name="cmd_help_description_short">Näytä ohje</string>

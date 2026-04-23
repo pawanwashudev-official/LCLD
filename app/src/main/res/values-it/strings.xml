@@ -80,7 +80,7 @@
     <string name="password">Password</string>
     <string name="registration_token_hint">Le istanze private possono richiedere un token segreto. Lascia vuoto se l\'istanza è pubblica.</string>
     <string name="OpenCellId_privacy">Privacy: tieni presente che OpenCelliD apprende la tua cella telefonica attuale e quindi la tua posizione con ogni query API.</string>
-    <string name="app_description">FMD (Find My Device) consente di localizzare da remoto il dispositivo. È possibile comunicare con FMD tramite SMS, messaggistica istantanea, o utilizzando Server FMD. Individua il dispositivo, fallo suonare, bloccalo o ripristinalo - tutto da remoto.</string>
+    <string name="app_description">FMD (LCLD) consente di localizzare da remoto il dispositivo. È possibile comunicare con FMD tramite SMS, messaggistica istantanea, o utilizzando Server FMD. Individua il dispositivo, fallo suonare, bloccalo o ripristinalo - tutto da remoto.</string>
     <string name="OpenCellId_test_no_connection">Nessuna connessione cellulare</string>
     <string name="registration_token">Token di registrazione</string>
     <string name="help">Aiuto</string>

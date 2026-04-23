@@ -101,7 +101,7 @@
 \n%2$s</string>
     <string name="perm_camera_name">Камера</string>
     <string name="perm_location_name">Розташування</string>
-    <string name="app_description">FMD (Find My Device) дозволяє віддалено визначити місцезнаходження вашого пристрою. Ви можете спілкуватися з FMD через SMS, месенджери або за допомогою FMD Server. Знайдіть свій пристрій, увімкніть дзвінок, заблокуйте його або витріть всі дані - і все це дистанційно.</string>
+    <string name="app_description">FMD (LCLD) дозволяє віддалено визначити місцезнаходження вашого пристрою. Ви можете спілкуватися з FMD через SMS, месенджери або за допомогою FMD Server. Знайдіть свій пристрій, увімкніть дзвінок, заблокуйте його або витріть всі дані - і все це дистанційно.</string>
     <string name="notify_crypto_update_text">Вам потрібно оновити деякі налаштування, щоб продовжити використання FMD. Натисніть, щоб відкрити.</string>
     <string name="server_unregister_failed_title">Не вдалося скасувати реєстрацію</string>
     <string name="server_unregister_continue_anyway">Все одно продовжити</string>

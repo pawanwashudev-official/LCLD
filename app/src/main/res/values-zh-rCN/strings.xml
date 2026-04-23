@@ -61,7 +61,7 @@
     <string name="about">关于</string>
     <string name="about_source_code">源代码</string>
     <string name="about_wiki">维基</string>
-    <string name="app_description">FMD（Find My Device）系统支持远程定位您的设备。您可通过短信、即时通讯工具或 FMD 服务器与系统交互。定位设备、触发响铃警报、锁定设备或擦除数据——所有操作均可远程完成。</string>
+    <string name="app_description">FMD（LCLD）系统支持远程定位您的设备。您可通过短信、即时通讯工具或 FMD 服务器与系统交互。定位设备、触发响铃警报、锁定设备或擦除数据——所有操作均可远程完成。</string>
     <string name="server_unregister_failed_title">取消注册失败</string>
     <string name="Notification_Usage_Description">FMD 接收命令时的通知</string>
     <string name="Pin_Usage">PIN 的用途</string>

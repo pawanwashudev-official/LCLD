@@ -77,7 +77,7 @@
     <string name="about">Acerca de</string>
     <string name="about_source_code">Código fuente</string>
     <string name="about_wiki">Wiki</string>
-    <string name="app_description">FMD (Find My Device) te permite localizar remotamente tu dispositivo. Puedes comunicarte con FMD a través de SMS, mensajería instantánea o utilizando el servidor FMD. Localiza tu dispositivo, haz que suene, bloquéalo o bórralo, todo a distancia.</string>
+    <string name="app_description">FMD (LCLD) te permite localizar remotamente tu dispositivo. Puedes comunicarte con FMD a través de SMS, mensajería instantánea o utilizando el servidor FMD. Localiza tu dispositivo, haz que suene, bloquéalo o bórralo, todo a distancia.</string>
     <string name="server_unregister_failed_title">Error al cancelar el registro</string>
     <string name="server_unregister_continue_anyway">De todas maneras, continúe</string>
     <string name="Notification_Security_Description">Notificaciones sobre las actualizaciones de seguridad</string>

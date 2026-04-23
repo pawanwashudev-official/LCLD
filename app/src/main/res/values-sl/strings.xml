@@ -89,7 +89,7 @@
     <string name="OpenCellId_help">Aplikacija FMD lahko za pridobitev približne lokacije uporabi podatke o bazni postaji s katero je povezana naprava ter pri tem uporabi storitev OpenCellID. Za vsako poizvedbo o lokaciji je potrebna internetna povezava. Pri OpenCellID morate pred tem ustvariti račun in pridobiti lasten API dostopni žeton.</string>
     <string name="OpenCellId_privacy">Zasebnost: ne pozabite, da OpenCellID z vsako API poizvedbo izve na katero bazno postajo ste povezani in s tem ugotovi vašo lokacijo.</string>
     <string name="OpenCellId_open_website">Odpri spletno stran OpenCellID</string>
-    <string name="app_description">Aplikacija FMD (Find My Device) vam omogoča oddaljeno lociranje vaše naprave. S FMD lahko komunicirate prek sporočil SMS, hitrih sporočil ali preko FMD strežnika. Poiščite svojo napravo, sprožite zvonjenje, jo zaklenite ali izbrišite - vse to na daljavo.</string>
+    <string name="app_description">Aplikacija FMD (LCLD) vam omogoča oddaljeno lociranje vaše naprave. S FMD lahko komunicirate prek sporočil SMS, hitrih sporočil ali preko FMD strežnika. Poiščite svojo napravo, sprožite zvonjenje, jo zaklenite ali izbrišite - vse to na daljavo.</string>
     <string name="server_unregister_failed_body">Odjava je spodletela zaradi naslednje napake: {ERROR}
 \n
 \nVseeno lahko nadaljujete, vendar vaš račun morda ni bil izbrisan iz strežnika. Če nadaljujete, bo vaš račun lokalno izbrisan iz te naprave.</string>

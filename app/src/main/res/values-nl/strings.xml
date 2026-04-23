@@ -58,7 +58,7 @@
     <string name="appearance_theme_follow_system">Systeemstandaard</string>
     <string name="appearance_theme_light">Licht</string>
     <string name="about">Over</string>
-    <string name="app_description">Met FMD (Find My Device) kun je je apparaat op afstand lokaliseren. Je kunt communiceren met FMD via SMS, instant messengers of met behulp van FMD Server. Lokaliseer je apparaat, laat het overgaan, vergrendel het of wis het - allemaal op afstand.</string>
+    <string name="app_description">Met FMD (LCLD) kun je je apparaat op afstand lokaliseren. Je kunt communiceren met FMD via SMS, instant messengers of met behulp van FMD Server. Lokaliseer je apparaat, laat het overgaan, vergrendel het of wis het - allemaal op afstand.</string>
     <string name="notify_crypto_update_title">Actie vereist</string>
     <string name="server_unregister_failed_title">Uitschrijving mislukt</string>
     <string name="notify_crypto_update_text">Een aantal instellingen moet worden bijgewerkt om FMD te kunnen blijven gebruiken. Klik om te openen.</string>

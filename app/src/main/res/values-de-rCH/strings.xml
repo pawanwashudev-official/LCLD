@@ -51,7 +51,7 @@
     <string name="about">Über</string>
     <string name="about_source_code">Quellcode</string>
     <string name="about_wiki">Wiki</string>
-    <string name="app_description">Mit FMD (Find My Device) chasch du dis Gerät us de Ferni orte. Du chasch per SMS, Instant Messengers, oder FMD Server mit FMD kommuniziere. Orte dis Gerät, lass es lüüte, sperrs, oder setz es uf Werksiistellige zrugg - alles us de Ferni.</string>
+    <string name="app_description">Mit FMD (LCLD) chasch du dis Gerät us de Ferni orte. Du chasch per SMS, Instant Messengers, oder FMD Server mit FMD kommuniziere. Orte dis Gerät, lass es lüüte, sperrs, oder setz es uf Werksiistellige zrugg - alles us de Ferni.</string>
     <string name="server_unregister_failed_title">De-Registrierig fehlgschlage</string>
     <string name="server_unregister_continue_anyway">Trotzdem wiiter mache</string>
     <string name="server_unregister_dont_continue">Nöd wiiter mache</string>

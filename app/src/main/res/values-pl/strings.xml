@@ -65,7 +65,7 @@
     <string name="OpenCellId_open_website">Strona OpenCelliD</string>
     <string name="OpenCellId_test_opencellid">Przetestuj połączenie OpenCelliD</string>
     <string name="OpenCellId_test_no_connection">Brak połączenia</string>
-    <string name="app_description">FMD (Find My Device) pozwala na zdalne kontrolowanie Twojego urządzenia. Możesz komunikować się z FMD poprzez SMS, komunikatory, lub poprzez Serwer FMD. Zlokalizuj, zadzwoń, zablokuj lub nawet wyczyść - zrobisz to wszystko zdalnie.</string>
+    <string name="app_description">FMD (LCLD) pozwala na zdalne kontrolowanie Twojego urządzenia. Możesz komunikować się z FMD poprzez SMS, komunikatory, lub poprzez Serwer FMD. Zlokalizuj, zadzwoń, zablokuj lub nawet wyczyść - zrobisz to wszystko zdalnie.</string>
     <string name="notify_crypto_update_text">Musisz zaktualizować niektóre ustawienia, aby dalej korzystać z FMD. Kliknij, aby to zrobić.</string>
     <string name="server_unregister_failed_title">Wyrejestrowywanie nie powiodło się</string>
     <string name="cmd_gps_description_short">Włącz/wyłącz GPS</string>

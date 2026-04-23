@@ -188,7 +188,8 @@
     <!-- Settings: About -->
     <string name="about">About</string>
     <string name="about_source_code">Source code</string>
-    <string name="about_wiki">Wiki</string>`n    <string name="about_gratitude">LCLD (Locate &amp; Control Lost Device) developed by Pawan Washudev. \n\n❤️ HUGE THANKS to Nulide and the original Find My Device (FMD) team for their incredible open-source work which made this project possible.</string>
+    <string name="about_wiki">Wiki</string>
+    <string name="about_gratitude">LCLD (Locate &amp; Control Lost Device) developed by Pawan Washudev. \n\n❤️ HUGE THANKS to Nulide and the original LCLD (FMD) team for their incredible open-source work which made this project possible.</string>
     <string name="app_description">FMD (Locate &amp; Control Lost Device) allows you to remotely locate your device. You can communicate with FMD over SMS, instant messengers, or using FMD Server. Locate your device, make it ring, lock it, or wipe it - all from remote.</string>
 
     <!-- Crypto update boarding -->

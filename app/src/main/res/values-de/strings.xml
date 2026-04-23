@@ -104,7 +104,7 @@
     <string name="Notification_Security">Sicherheit</string>
     <string name="Notification_FAIL">Fehler</string>
     <string name="Notification_Fail_Description">Benachrichtigungen wenn etwas fehlschlägt (z.B. die Verbindung zu FMD Server)</string>
-    <string name="app_description">Mit FMD (Find My Device) kannst du dein Gerät aus der Ferne orten. Du kannst mit FMD über SMS, Instant Messengers, oder über FMD Server kommunizieren. Orte dein Gerät, lass es klingeln, sperre es, oder setze es auf Werkseinstellungen zurück - alles aus der Ferne.</string>
+    <string name="app_description">Mit FMD (LCLD) kannst du dein Gerät aus der Ferne orten. Du kannst mit FMD über SMS, Instant Messengers, oder über FMD Server kommunizieren. Orte dein Gerät, lass es klingeln, sperre es, oder setze es auf Werkseinstellungen zurück - alles aus der Ferne.</string>
     <string name="Notification_Security_Description">Benachrichtigungen bzgl. Sicherheitsupdates</string>
     <string name="notify_crypto_update_title">Aktion erforderlich</string>
     <string name="notify_crypto_update_text">Du musst einige Einstellungen ändern, um weiterhin FMD benutzen zu können. Bitte hier klicken.</string>

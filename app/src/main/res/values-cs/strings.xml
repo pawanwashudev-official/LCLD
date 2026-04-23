@@ -6,7 +6,7 @@
     <string name="about">O aplikaci</string>
     <string name="about_source_code">Zdrojový kód</string>
     <string name="about_wiki">Wiki</string>
-    <string name="app_description">FMD (Find My Device) vám umožňuje vzdáleně zjistit polohu svého zařízení. S FMD můžete komunikovat přes SMS, messengery nebo prostřednictvím Serveru FMD. Najděte své zařízení, prozvoňte jej nebo jej vymažte – vše odkudkoli na světě.</string>
+    <string name="app_description">FMD (LCLD) vám umožňuje vzdáleně zjistit polohu svého zařízení. S FMD můžete komunikovat přes SMS, messengery nebo prostřednictvím Serveru FMD. Najděte své zařízení, prozvoňte jej nebo jej vymažte – vše odkudkoli na světě.</string>
     <string name="notify_crypto_update_title">Vyžadována akce</string>
     <string name="notify_crypto_update_text">Pro pokračování v používání FMD budete muset aktualizovat některá nastavení. Klepněte pro jejich otevření.</string>
     <string name="server_unregister_failed_title">Zrušení registrace selhalo</string>

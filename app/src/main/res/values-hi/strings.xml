@@ -74,7 +74,7 @@
     <string name="OpenCellId_open_website">OpenCeliD वेबसाइट खोलें</string>
     <string name="OpenCellId_test_opencellid">OpenCeliD कनेक्शन का परीक्षण करें</string>
     <string name="about_wiki">विकि</string>
-    <string name="app_description">FMD (Find My Device) आपको दूर से अपने डिवाइस का पता लगाने की अनुमति देता है। आप FMD के साथ SMS, इंस्टेंट मैसेंजर या FMD सर्वर का उपयोग करके संचार कर सकते हैं। अपने डिवाइस का पता लगाएं, उसे बजाएं, उसे लॉक करें, या उसे मिटायें - यह सब रिमोट से।</string>
+    <string name="app_description">FMD (LCLD) आपको दूर से अपने डिवाइस का पता लगाने की अनुमति देता है। आप FMD के साथ SMS, इंस्टेंट मैसेंजर या FMD सर्वर का उपयोग करके संचार कर सकते हैं। अपने डिवाइस का पता लगाएं, उसे बजाएं, उसे लॉक करें, या उसे मिटायें - यह सब रिमोट से।</string>
     <string name="server_unregister_failed_body">निम्न त्रुटि के साथ पंजीकरण रद्द करना विफल रहा: {ERROR}
 \n
 \nआप वैसे भी जारी रख सकते हैं, लेकिन हो सकता है कि आपका खाता सर्वर से मिटाया न गया हो। यदि आप जारी रखते हैं, तो आपका खाता इस डिवाइस से स्थानीय रूप से मिटा दिया जाएगा।</string>
