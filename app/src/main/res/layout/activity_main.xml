@@ -45,6 +45,9 @@
         android:background="@drawable/bg_glass_card"
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
+        app:itemIconTint="@color/bottom_nav_item_color"
+        app:itemTextColor="@color/bottom_nav_item_color"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/menu_bottom_nav_view" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -37,12 +37,13 @@
         <item name="android:textSize">11sp</item>
     </style>
 
-    <style name="Lcld.GlassCard" parent="Widget.Material3.CardView.Elevated">
+    <style name="Lcld.GlassCard" parent="Widget.Material3.CardView.Filled">
         <item name="cardCornerRadius">20dp</item>
         <item name="cardBackgroundColor">@color/lcld_glass_surface</item>
         <item name="strokeColor">@color/lcld_glass_stroke</item>
         <item name="strokeWidth">1dp</item>
         <item name="cardUseCompatPadding">true</item>
+        <item name="cardElevation">3dp</item>
     </style>
 
     
