@@ -45,10 +45,7 @@
         <item name="cardUseCompatPadding">true</item>
     </style>
 
-    <style name="Lcld.BottomNav.ActiveIndicator" parent="Widget.Material3.NavigationBar.ActiveIndicator">
-        <item name="android:color">@color/md_theme_primaryContainer</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Full</item>
-    </style>
+    
 
     <!-- AboutLibraries requires Material3 with NoActionBar. -->
     <style name="CustomAboutLibrariesStyle" parent="AppTheme">

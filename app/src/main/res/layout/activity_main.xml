@@ -45,7 +45,7 @@
         android:background="@drawable/bg_glass_card"
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
-        app:itemActiveIndicatorStyle="@style/Lcld.BottomNav.ActiveIndicator"
+        app:itemActiveIndicatorColor="@color/md_theme_primaryContainer"
         app:menu="@menu/menu_bottom_nav_view" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
