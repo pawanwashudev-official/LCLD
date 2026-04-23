@@ -150,4 +150,9 @@
     <color name="md_theme_surfaceContainer_highContrast">#EAF0E4</color>
     <color name="md_theme_surfaceContainerHigh_highContrast">#E4EADE</color>
     <color name="md_theme_surfaceContainerHighest_highContrast">#DEE4D9</color>
+
+    <color name="lcld_bg_gradient_start">#0F1629</color>
+    <color name="lcld_bg_gradient_end">#22375B</color>
+    <color name="lcld_glass_surface">#CCF4F7FF</color>
+    <color name="lcld_glass_stroke">#66FFFFFF</color>
 </resources>

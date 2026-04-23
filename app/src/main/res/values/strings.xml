@@ -33,6 +33,7 @@
     <string name="bottom_nav_commands">Commands</string>
     <string name="bottom_nav_transports">Transport channels</string>
     <string name="bottom_nav_settings">Settings</string>
+    <string name="main_dashboard_subtitle">Secure control center</string>
 
     <!-- Settings (main screen, with the list) -->
     <string name="Settings_Settings">Settings</string>
@@ -353,6 +354,7 @@
     <string name="executing_text">The command \"%1$s\" is being executed by \"%2$s\".</string>
 
     <!-- Setup warnings -->
+    <string name="setup_warnings_subtitle">Review setup and permissions</string>
     <string name="setup_warnings_title">Setup warnings</string>
     <string name="setup_recommendations_title">Recommendations</string>
     <string name="missing_permissions_title">Missing permissions</string>

@@ -1,29 +1,50 @@
-﻿name: Android CI Build
+name: Android CI Build & Release
 
 on:
-  workflow_dispatch: # Allows manual trigger from the Actions tab
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  build-and-release:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: set up JDK 21
-      uses: actions/setup-java@v4
-      with:
-        java-version: '21'
-        distribution: 'temurin'
-        cache: gradle
+      - uses: actions/checkout@v4
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: gradle
 
-    - name: Build Debug APK
-      run: ./gradlew assembleProdDebug
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
 
-    - name: Upload Debug APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: LCLD-Debug-APK
-        path: app/build/outputs/apk/prod/debug/*.apk
+      - name: Build Prod Debug APK
+        run: ./gradlew assembleProdDebug
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: LCLD-Prod-Debug-APK
+          path: app/build/outputs/apk/prod/debug/*.apk
+
+      - name: Generate release tag
+        id: release_tag
+        run: echo "tag=auto-${GITHUB_REF_NAME//\//-}-${GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.release_tag.outputs.tag }}
+          name: LCLD Automated Build ${{ steps.release_tag.outputs.tag }}
+          prerelease: true
+          generate_release_notes: true
+          files: app/build/outputs/apk/prod/debug/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

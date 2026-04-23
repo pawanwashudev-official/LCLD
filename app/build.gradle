@@ -7,7 +7,7 @@ plugins {
 
 android {
     compileSdk 36
-    namespace 'de.nulide.findmydevice'
+    namespace 'com.neubofy.lcld'
     packagingOptions {
         resources {
             excludes += ['META-INF/LICENSE.md', 'META-INF/NOTICE.md', 'META-INF/versions/9/OSGI-INF/MANIFEST.MF']
@@ -25,7 +25,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "de.nulide.findmydevice"
+        applicationId "com.neubofy.lcld"
         minSdkVersion 24
         // TODO: raise targetSdk again.
         // We supported targetSdk 34 until BluetoothCommand was added, which requires max 32 to work:
@@ -34,8 +34,8 @@ android {
         // https://gitlab.com/Nulide/findmydevice/-/issues/220
         // noinspection ExpiredTargetSdkVersion
         targetSdkVersion 32
-        versionCode 40
-        versionName "0.14.2"
+        versionCode 1
+        versionName "1.0.0"
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
