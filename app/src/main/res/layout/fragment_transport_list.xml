@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:clipToPadding="false"
     android:paddingTop="@dimen/margin_small"
-    android:paddingBottom="100dp"
+    android:paddingBottom="72dp"
     android:scrollbars="vertical"
     app:layoutManager="LinearLayoutManager"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"

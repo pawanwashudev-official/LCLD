@@ -35,6 +35,7 @@ android {
         versionCode 1
         versionName "1.0.0"
         multiDexEnabled true
+        resConfigs "en", "en-rUS"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -83,7 +84,7 @@ android {
 
     // https://developer.android.com/guide/topics/resources/app-languages
     androidResources {
-        generateLocaleConfig true
+        generateLocaleConfig false
     }
 
     compileOptions {
