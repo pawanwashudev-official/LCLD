@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A0000000"
     android:orientation="vertical">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -25,7 +24,8 @@
                 android:layout_height="wrap_content"
                 android:minHeight="?attr/actionBarSize"
                 android:background="@android:color/transparent"
-                app:title="@string/app_name" />
+                app:title="@string/app_name"
+                app:titleTextColor="@color/gold_primary" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <FrameLayout
@@ -41,7 +41,9 @@
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#80000000"
+        android:background="@color/glass_white"
+        app:itemIconTint="@color/gold_primary"
+        app:itemTextColor="@color/gold_primary"
         app:menu="@menu/menu_bottom_nav_view" />
 
 </LinearLayout>

@@ -15,7 +15,7 @@
     </style>
 
     <style name="LCLD.Text.SectionTitle" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textColor">@color/gold_primary</item>
         <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAlignment">textStart</item>
