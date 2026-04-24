@@ -17,7 +17,7 @@ import com.neubofy.lcld.ui.UiUtil.Companion.setupEdgeToEdgeAppBar
 import com.neubofy.lcld.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
 import com.neubofy.lcld.utils.CellParameters
 import com.neubofy.lcld.utils.Utils.Companion.getGeoURI
-import com.neubofy.lcld.utils.Utils.Companion.getOpenStreetMapLink
+import com.neubofy.lcld.utils.Utils.Companion.getGoogleMapsLink
 import com.neubofy.lcld.utils.Utils.Companion.openUrl
 import com.neubofy.lcld.utils.Utils.Companion.pasteFromClipboard
 import com.neubofy.lcld.utils.log
@@ -126,9 +126,9 @@ class OpenCellIdActivity : FmdActivity(), TextWatcher {
             paras, apiAccessToken,
             onSuccess = {
                 val geoURI = getGeoURI(it.lat, it.lon)
-                val osm = getOpenStreetMapLink(it.lat, it.lon)
+                val osm = getGoogleMapsLink(it.lat, it.lon)
                 append(
-                    "Paras: $paras\n\nOpenCelliD: ${it.url}\n${geoURI}\nOpenStreetMap: $osm"
+                    "Paras: $paras\n\nOpenCelliD: ${it.url}\n${geoURI}\nGoogle Maps: $osm"
                 )
             },
             onError = {

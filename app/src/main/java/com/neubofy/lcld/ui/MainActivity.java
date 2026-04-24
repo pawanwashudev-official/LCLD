@@ -70,11 +70,6 @@ public class MainActivity extends FmdActivity {
         if (settings.serverAccountExists()) {
             checkServerVersion();
             ServerCommandDownloadService.scheduleJobNow(this);
-            PushReceiver.registerWithUnifiedPush(this);
-        }
-        
-        if (PushWarningsKt.shouldWarnUnifiedPushRequired(this)) {
-            PushWarningsKt.dialogWarnUnifiedPushRequired(this);
         }
 
         if (BuildConfig.FLAVOR.equals("edge") && !(Boolean) settings.get(Settings.SET_FMD_EDGE_INFO_SHOWN)) {

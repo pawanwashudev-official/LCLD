@@ -158,10 +158,6 @@
                 android:ems="10"
                 android:text="@string/Settings_LCLDServer_Delete_Account" />
 
-            <!-- Push -->
-
-            <include layout="@layout/activity_f_m_d_server_section_push" />
-
             <!-- Connectivity Check -->
 
             <View

@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,8 +23,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
-import org.unifiedpush.android.connector.UnifiedPush;
 
 import java.security.KeyPair;
 
@@ -36,7 +33,6 @@ import com.neubofy.lcld.data.Settings;
 import com.neubofy.lcld.data.SettingsRepository;
 import com.neubofy.lcld.net.FMDServerApiRepoSpec;
 import com.neubofy.lcld.net.FMDServerApiRepository;
-import com.neubofy.lcld.receiver.PushReceiver;
 import com.neubofy.lcld.services.FmdBatteryLowService;
 import com.neubofy.lcld.services.ServerCommandDownloadService;
 import com.neubofy.lcld.services.ServerConnectivityCheckService;
@@ -87,13 +83,6 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         findViewById(R.id.buttonLogout).setOnClickListener(this::onLogoutClicked);
         findViewById(R.id.buttonDeleteData).setOnClickListener(this::onDeleteClicked);
 
-        findViewById(R.id.buttonOpenPushDistributor).setOnClickListener(this::onOpenPushDistributorClicked);
-        findViewById(R.id.buttonCopyPushDistributor).setOnClickListener(this::onCopyPushDistributorClicked);
-        findViewById(R.id.buttonCopyPushUrl).setOnClickListener(this::onCopyPushUrlClicked);
-        findViewById(R.id.buttonInstallSunup).setOnClickListener(this::onInstallSunupClicked);
-        findViewById(R.id.buttonRegisterPush).setOnClickListener(this::onRegisterPushClicked);
-        findViewById(R.id.buttonOpenUnifiedPush).setOnClickListener(this::onOpenUnifiedPushClicked);
-
         editTextCheckInterval = findViewById(R.id.editTextCheckInterval);
         editTextCheckInterval.setText(settings.get(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS).toString());
         editTextCheckInterval.addTextChangedListener(this);
@@ -136,7 +125,6 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         super.onResume();
 
         checkConnection();
-        checkPushRegistration();
         ServerCommandDownloadService.scheduleJobNow(this);
     }
 
@@ -186,7 +174,6 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
         long value;
         try {
-            // The EditText's inputType shouldn't allow non-numbers, but catch the exception anyway.
             value = Long.parseLong(string);
         } catch (NumberFormatException e) {
             return;
@@ -245,12 +232,10 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                 .setMessage(R.string.Settings_LCLDServer_Logout_Text)
                 .setPositiveButton(getString(R.string.Ok), (dialog, whichButton) -> {
                     settings.removeServerAccount();
-                    // TODO: API to invalidate access tokens. Maybe combine with session management.
                     EncryptedSettingsRepository encryptedSettingsRepo = EncryptedSettingsRepository.Companion.getInstance(this);
                     encryptedSettingsRepo.setCachedAccessToken("");
                     ServerLocationUploadService.cancelJob(this);
                     ServerConnectivityCheckService.cancelJob(this);
-                    PushReceiver.unregisterWithUnifiedPush(this);
                     finish();
                 })
                 .setNegativeButton(getString(R.string.cancel), null)
@@ -294,32 +279,8 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         loadingDialog.show();
     }
 
-    private void onOpenPushDistributorClicked(View view) {
-        String packageName = UnifiedPush.getDistributor(this);
-        Utils.openApp(this, packageName);
-    }
-
-    private void onCopyPushDistributorClicked(View view) {
-        String text = UnifiedPush.getDistributor(this);
-        Utils.copyToClipboard(this, "Push Distributor", text);
-    }
-
-    private void onCopyPushUrlClicked(View view) {
-        String text = (String) settings.get(Settings.SET_FMDSERVER_PUSH_URL);
-        Utils.copyToClipboard(this, "Push URL", text);
-    }
-
-    private void onOpenUnifiedPushClicked(View view) {
-        Utils.openUrl(this, "https://fmd-foss.org/docs/fmd-android/push");
-    }
-
-    private void onInstallSunupClicked(View view) {
-        Utils.openUrl(this, "https://f-droid.org/en/packages/org.unifiedpush.distributor.sunup");
-    }
-
     private void runChangePassword(String oldPassword, String password) {
         showLoadingIndicator(this);
-        // do expensive async crypto and hashing in a background thread (not on the UI thread)
         new Thread(() -> {
             try {
                 KeyPair keyPair = CypherUtils.decryptPrivateKeyWithPassword((String) settings.get(Settings.SET_FMD_CRYPT_PRIVKEY), oldPassword);
@@ -356,7 +317,6 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         showLoadingIndicator(context);
         ServerLocationUploadService.cancelJob(context);
         ServerConnectivityCheckService.cancelJob(context);
-        PushReceiver.unregisterWithUnifiedPush(context);
         fmdServerRepo.unregister(
                 response -> {
                     loadingDialog.cancel();
@@ -406,52 +366,5 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
             // Silently ignore
             serverVersion.setVisibility(View.GONE);
         });
-    }
-
-    private void checkPushRegistration() {
-        if (!PushReceiver.isRegisteredWithUnifiedPush(this)) {
-            PushReceiver.registerWithUnifiedPush(this);
-        }
-
-        LinearLayout sectionPushDistributor = findViewById(R.id.sectionPushDistributor);
-        TextView textPushDistributor = findViewById(R.id.textPushDistributor);
-        LinearLayout sectionPushUrl = findViewById(R.id.sectionPushUrl);
-        TextView textPushUrl = findViewById(R.id.textPushUrl);
-        Button buttonRegister = findViewById(R.id.buttonRegisterPush);
-
-        TextView textInfoSunup = findViewById(R.id.textInfoSunup);
-        Button buttonInstallSunup = findViewById(R.id.buttonInstallSunup);
-
-        String distributor = UnifiedPush.getDistributor(this);
-        if (!distributor.isEmpty()) {
-            sectionPushDistributor.setVisibility(View.VISIBLE);
-            textPushDistributor.setText(getString(R.string.Settings_LCLDServer_Push_Distributor, distributor));
-
-            sectionPushUrl.setVisibility(View.VISIBLE);
-            String url = (String) settings.get(Settings.SET_FMDSERVER_PUSH_URL);
-            textPushUrl.setText(getString(R.string.Settings_LCLDServer_Push_Url, url));
-
-            textInfoSunup.setVisibility(View.GONE);
-            buttonInstallSunup.setVisibility(View.GONE);
-
-            buttonRegister.setText(R.string.Settings_LCLDServer_Push_Register_Again);
-        } else {
-            sectionPushDistributor.setVisibility(View.GONE);
-            sectionPushUrl.setVisibility(View.GONE);
-
-            textInfoSunup.setVisibility(View.VISIBLE);
-            buttonInstallSunup.setVisibility(View.VISIBLE);
-
-            buttonRegister.setText(R.string.Settings_LCLDServer_Push_Register);
-        }
-    }
-
-    private void onRegisterPushClicked(View view) {
-        PushReceiver.unregisterWithUnifiedPush(this);
-        checkPushRegistration();
-
-        // TODO: Hack to get the screen to refresh.
-        // The proper way to do this would be callbacks.
-        view.postDelayed(this::checkPushRegistration, 5 * 1000L);
     }
 }

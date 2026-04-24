@@ -3,7 +3,7 @@ package com.neubofy.lcld.data
 import android.content.Context
 import android.location.Location
 import com.neubofy.lcld.utils.Utils
-import com.neubofy.lcld.utils.Utils.Companion.getOpenStreetMapLink
+import com.neubofy.lcld.utils.Utils.Companion.getGoogleMapsLink
 import java.util.Date
 
 
@@ -64,7 +64,7 @@ data class FmdLocation(
 
         string.append("Time: ${Date(timeMillis)}\n")
             .append("Battery: $batteryLevel %\n")
-            .append(getOpenStreetMapLink(lat, lon))
+            .append(getGoogleMapsLink(lat, lon))
         return string.toString()
     }
 }
