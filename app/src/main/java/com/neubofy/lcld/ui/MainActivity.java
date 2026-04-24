@@ -44,12 +44,7 @@ public class MainActivity extends FmdActivity {
         toolbar.setOnMenuItemClickListener(this::onOptionsItemSelected);
         setSupportActionBar(toolbar);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            getWindow().setNavigationBarContrastEnforced(false);
-        }
-
         setupEdgeToEdgeAppBar(findViewById(R.id.appBar));
-        UiUtil.setupEdgeToEdge(findViewById(R.id.main_content), true, true);
 
         settings = SettingsRepository.Companion.getInstance(this);
         settings.load();
