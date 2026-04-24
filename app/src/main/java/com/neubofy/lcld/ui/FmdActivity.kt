@@ -28,6 +28,10 @@ abstract class FmdActivity : AppCompatActivity() {
         // Thus children need to call super.onCreate before setContentView.
         // Needs to be after dynamic colors.
         enableEdgeToEdge()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            window.isNavigationBarContrastEnforced = false
+            window.isStatusBarContrastEnforced = false
+        }
     }
 
     override fun onResume() {

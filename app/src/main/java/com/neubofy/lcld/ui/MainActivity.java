@@ -49,7 +49,7 @@ public class MainActivity extends FmdActivity {
         }
 
         setupEdgeToEdgeAppBar(findViewById(R.id.appBar));
-        setupEdgeToEdgeAppBar(findViewById(R.id.fragment_container));
+        UiUtil.setupEdgeToEdge(findViewById(R.id.main_content), true, true);
 
         settings = SettingsRepository.Companion.getInstance(this);
         settings.load();
