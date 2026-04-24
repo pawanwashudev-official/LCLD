@@ -9,6 +9,9 @@ on:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,16 +28,18 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Generate Dummy Keystore
+    - name: Decode Keystore
+      env:
+        KEYSTORE_BASE64: ${{ secrets.KEYSTORE }}
       run: |
-        keytool -genkey -v -keystore dummy.keystore -alias dummy -keyalg RSA -keysize 2048 -validity 10000 -storepass dummy123 -keypass dummy123 -dname "CN=Dummy, OU=Dummy, O=Dummy, L=Dummy, S=Dummy, C=US"
-        echo "storeFile=../dummy.keystore" > keystore.properties
-        echo "storePassword=dummy123" >> keystore.properties
-        echo "keyAlias=dummy" >> keystore.properties
-        echo "keyPassword=dummy123" >> keystore.properties
+        echo $KEYSTORE_BASE64 | base64 --decode > keystore.jks
 
     - name: Build Release APK
-      run: ./gradlew assembleProdRelease -Pandroid.injected.signing.store.file=$(pwd)/dummy.keystore -Pandroid.injected.signing.store.password=dummy123 -Pandroid.injected.signing.key.alias=dummy -Pandroid.injected.signing.key.password=dummy123
+      env:
+        KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+        KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+        KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      run: ./gradlew assembleProdRelease -Pandroid.injected.signing.store.file=$(pwd)/keystore.jks -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD -Pandroid.injected.signing.key.alias=$KEY_ALIAS -Pandroid.injected.signing.key.password=$KEY_PASSWORD
 
     - name: Upload Release APK Artifact
       uses: actions/upload-artifact@v4
@@ -54,6 +59,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: LCLD-Release-APK
+          path: apk_files
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
@@ -61,5 +67,5 @@ jobs:
           tag_name: "v1.0.0-${{ github.sha }}"
           name: "LCLD Release v1.0.0-${{ github.sha }}"
           files: |
-            *.apk
+            apk_files/*.apk
           generate_release_notes: true
