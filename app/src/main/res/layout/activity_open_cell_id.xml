@@ -84,7 +84,7 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
-                style="@style/LCLD.Text.SectionTitle"
+                style="@style/FMD.Text.SectionTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_normal"

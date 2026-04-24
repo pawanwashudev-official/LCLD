@@ -24,8 +24,8 @@ public class SettingsEntry {
 
     public static List<SettingsEntry> getSettingsEntries(Context context) {
         List<SettingsEntry> entries = new ArrayList<>();
-        entries.add(new SettingsEntry(context, R.string.Settings_LCLDConfig, R.drawable.ic_settings));
-        entries.add(new SettingsEntry(context, R.string.Settings_LCLDServer, R.drawable.ic_cloud));
+        entries.add(new SettingsEntry(context, R.string.Settings_FMDConfig, R.drawable.ic_settings));
+        entries.add(new SettingsEntry(context, R.string.Settings_FMDServer, R.drawable.ic_cloud));
         entries.add(new SettingsEntry(context, R.string.Settings_WhiteList, R.drawable.ic_people));
         entries.add(new SettingsEntry(context, R.string.Settings_OpenCellId, R.drawable.ic_cell_tower));
         entries.add(new SettingsEntry(context, R.string.Settings_Appearance, R.drawable.ic_palette));

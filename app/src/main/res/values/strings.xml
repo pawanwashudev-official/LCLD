@@ -188,7 +188,7 @@
     <!-- Settings: About -->
     <string name="about">About</string>
     <string name="about_source_code">Source code</string>
-    <string name="about_wiki">Wiki</string>`n    <string name="about_gratitude">LCLD (Locate &amp; Control Lost Device) developed by Pawan Washudev (pawanwashudev@gmail.com). \n\n❤️ HUGE THANKS to Nulide and the original LCLD (LCLD) team for their incredible open-source work which made this project possible.</string>
+    <string name="about_wiki">Wiki</string>`n    <string name="about_gratitude">LCLD (Locate &amp; Control Lost Device) developed by Pawan Washudev. \n\n❤️ HUGE THANKS to Nulide and the original LCLD (LCLD) team for their incredible open-source work which made this project possible.</string>
     <string name="app_description">LCLD (Locate &amp; Control Lost Device) allows you to remotely locate your device. You can communicate with LCLD over SMS, instant messengers, or using LCLD Server. Locate your device, make it ring, lock it, or wipe it - all from remote.</string>
 
     <!-- Crypto update boarding -->

@@ -66,7 +66,7 @@
         <activity
             android:name=".ui.settings.AddAccountActivity"
             android:exported="false"
-            android:label="@string/Settings_LCLDServer_AddAccount" />
+            android:label="@string/Settings_FMDServer_AddAccount" />
         <activity
             android:name=".ui.DummyCameraxActivity"
             android:exported="false"
@@ -82,13 +82,13 @@
             android:label="@string/Settings_Appearance" />
         <activity
             android:name=".ui.settings.FMDServerActivity"
-            android:label="@string/Settings_LCLDServer" />
+            android:label="@string/Settings_FMDServer" />
         <activity
             android:name=".ui.settings.OpenCellIdActivity"
             android:label="@string/Settings_OpenCellId" />
         <activity
             android:name=".ui.settings.FMDConfigActivity"
-            android:label="@string/Settings_LCLDConfig" />
+            android:label="@string/Settings_FMDConfig" />
         <activity
             android:name="com.mikepenz.aboutlibraries.ui.LibsActivity"
             android:theme="@style/CustomAboutLibrariesStyle" />

@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
-            app:title="@string/Settings_LCLDServer" />
+            app:title="@string/Settings_FMDServer" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -32,11 +32,11 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/LCLD.Text.SectionTitle"
+                style="@style/FMD.Text.SectionTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_LCLD_Server_General" />
+                android:text="@string/Settings_FMD_Server_General" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/Settings_LCLD_Server_Server_URL" />
+                    android:text="@string/Settings_FMD_Server_Server_URL" />
 
                 <TextView
                     android:id="@+id/textViewServerUrl"
@@ -84,7 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/Settings_LCLD_Server_User_ID" />
+                    android:text="@string/Settings_FMD_Server_User_ID" />
 
                 <TextView
                     android:id="@+id/textViewUserId"
@@ -106,7 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_normal"
-                android:text="@string/Settings_LCLD_Server_ID_Desc" />
+                android:text="@string/Settings_FMD_Server_ID_Desc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -118,13 +118,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/Settings_LCLD_Server_Connection_Status" />
+                    android:text="@string/Settings_FMD_Server_Connection_Status" />
 
                 <TextView
                     android:id="@+id/textViewConnectionStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="@string/Settings_LCLD_Server_Connection_Status_Success" />
+                    tools:text="@string/Settings_FMD_Server_Connection_Status_Success" />
             </LinearLayout>
 
             <TextView
@@ -140,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
                 android:ems="10"
-                android:text="@string/Settings_LCLDServer_Change_Password_Button" />
+                android:text="@string/Settings_FMDServer_Change_Password_Button" />
 
             <Button
                 android:id="@+id/buttonLogout"
@@ -148,7 +148,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
                 android:ems="10"
-                android:text="@string/Settings_LCLDServer_Logout_Button" />
+                android:text="@string/Settings_FMDServer_Logout_Button" />
 
             <Button
                 android:id="@+id/buttonDeleteData"
@@ -156,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_normal"
                 android:ems="10"
-                android:text="@string/Settings_LCLDServer_Delete_Account" />
+                android:text="@string/Settings_FMDServer_Delete_Account" />
 
             <!-- Push -->
 
@@ -171,17 +171,17 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
-                style="@style/LCLD.Text.SectionTitle"
+                style="@style/FMD.Text.SectionTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_LCLDServer_Check_Interval_Title" />
+                android:text="@string/Settings_FMDServer_Check_Interval_Title" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_LCLDServer_Check_Interval_Description" />
+                android:text="@string/Settings_FMDServer_Check_Interval_Description" />
 
             <EditText
                 android:id="@+id/editTextCheckInterval"
@@ -194,17 +194,17 @@
                 tools:text="4" />
 
             <TextView
-                style="@style/LCLD.Text.SectionTitle"
+                style="@style/FMD.Text.SectionTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_LCLDServer_Check_Notify_After_Title" />
+                android:text="@string/Settings_FMDServer_Check_Notify_After_Title" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_LCLDServer_Check_Notify_After_Description" />
+                android:text="@string/Settings_FMDServer_Check_Notify_After_Description" />
 
             <EditText
                 android:id="@+id/editTextNotifyAfterTime"
@@ -225,22 +225,22 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
-                style="@style/LCLD.Text.SectionTitle"
+                style="@style/FMD.Text.SectionTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_LCLDServer_Update_Interval_Title" />
+                android:text="@string/Settings_FMDServer_Update_Interval_Title" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Settings_LCLDServer_Update_Interval_Description" />
+                android:text="@string/Settings_FMDServer_Update_Interval_Description" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_LCLDServer_Update_Interval_Description_Constraint" />
+                android:text="@string/Settings_FMDServer_Update_Interval_Description_Constraint" />
 
             <EditText
                 android:id="@+id/editTextFMDServerUpdateTime"
@@ -253,17 +253,17 @@
                 tools:text="60" />
 
             <TextView
-                style="@style/LCLD.Text.SectionTitle"
+                style="@style/FMD.Text.SectionTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_LCLDServer_Location_Type_Title" />
+                android:text="@string/Settings_FMDServer_Location_Type_Title" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_LCLDServer_Location_Type_Description" />
+                android:text="@string/Settings_FMDServer_Location_Type_Description" />
 
             <CheckBox
                 android:id="@+id/checkBoxFMDServerFused"
@@ -291,17 +291,17 @@
                 android:background="?android:attr/listDivider" />
 
             <TextView
-                style="@style/LCLD.Text.SectionTitle"
+                style="@style/FMD.Text.SectionTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_LCLDServer_LOW_BAT_Upload_Title" />
+                android:text="@string/Settings_FMDServer_LOW_BAT_Upload_Title" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_LCLDServer_LOW_BAT_Upload_Description" />
+                android:text="@string/Settings_FMDServer_LOW_BAT_Upload_Description" />
 
             <CheckBox
                 android:id="@+id/checkBoxFMDServerLowBatUpload"

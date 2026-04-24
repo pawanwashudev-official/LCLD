@@ -125,7 +125,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         prefillRegistrationToken(registrationTokenInput)
 
         val registerDialog = MaterialAlertDialogBuilder(context)
-            .setTitle(context.getString(R.string.Settings_LCLDServer_Register))
+            .setTitle(context.getString(R.string.Settings_FMDServer_Register))
             .setView(registerLayout)
             .setCancelable(false)
             .setPositiveButton(getString(R.string.Ok)) { _, _ ->
@@ -176,7 +176,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         val passwordInput = loginLayout.findViewById<EditText>(R.id.editTextPassword)
 
         val loginDialog = MaterialAlertDialogBuilder(context)
-            .setTitle(context.getString(R.string.Settings_LCLDServer_Login))
+            .setTitle(context.getString(R.string.Settings_FMDServer_Login))
             .setView(loginLayout)
             .setCancelable(false)
             .setPositiveButton(getString(R.string.Ok)) { _, _ ->
@@ -196,7 +196,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                     }
                 } else {
                     Toast.makeText(
-                        context, R.string.Settings_LCLDServer_Error_id_or_pw_empty, Toast.LENGTH_LONG
+                        context, R.string.Settings_FMDServer_Error_id_or_pw_empty, Toast.LENGTH_LONG
                     ).show()
                     loadingDialog?.cancel()
                 }
@@ -223,7 +223,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         webView.loadUrl(url)
 
         MaterialAlertDialogBuilder(context)
-            .setTitle(getString(R.string.Settings_LCLDServer_Alert_PrivacyPolicy_Title))
+            .setTitle(getString(R.string.Settings_FMDServer_Alert_PrivacyPolicy_Title))
             .setView(webView)
             .setPositiveButton(getString(R.string.accept)) { _, _ -> dialogToShowAfterAccepting.show() }
             .setNegativeButton(getString(R.string.cancel), null)

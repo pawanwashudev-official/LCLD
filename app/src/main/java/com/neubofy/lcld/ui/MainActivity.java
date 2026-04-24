@@ -14,7 +14,9 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.navigation.NavigationBarView;
 
 import com.neubofy.lcld.BuildConfig;
 import com.neubofy.lcld.R;
@@ -34,10 +36,20 @@ import kotlin.Unit;
 
 public class MainActivity extends FmdActivity {
 
+    private static final String KEY_ACTIVE_FRAGMENT_TAG = "activeFragmentTag";
+
     SettingsRepository settings;
 
-    private CommandListFragment commandsFragment;
-    private TransportListFragment transportFragment;
+    private TaggedFragment commandsFragment, transportFragment, settingsFragment;
+    private TaggedFragment activeFragment;
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        // for some reason, getTag() returns null, so we need to use getStaticTag()
+        outState.putString(KEY_ACTIVE_FRAGMENT_TAG, activeFragment.getStaticTag());
+
+        super.onSaveInstanceState(outState);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +66,15 @@ public class MainActivity extends FmdActivity {
         }
 
         setupEdgeToEdgeAppBar(findViewById(R.id.appBar));
+        setupEdgeToEdgeAppBar(findViewById(R.id.fragment_container)); // shift the container down, too
 
         settings = SettingsRepository.Companion.getInstance(this);
 
+        // Around the CrashedActivity it can happen that the two activities run in different processes.
+        // In different processes, the SettingsRepository instance is different.
+        // This can result in an endless "Continue to MainActivity" loop, because one repo sets the
+        // flag to 0, but the other repo does not load the updated file.
+        // To make sure we load the status correctly, reload from disk.
         settings.load();
 
         if (((Integer) settings.get(Settings.SET_APP_CRASHED_LOG_ENTRY)) == 1) {
@@ -73,17 +91,33 @@ public class MainActivity extends FmdActivity {
             return;
         }
 
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+        bottomNav.setOnItemSelectedListener(navListener);
+
         commandsFragment = new CommandListFragment();
         transportFragment = new TransportListFragment();
+        settingsFragment = new SettingsFragment();
 
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container_commands, commandsFragment)
-                .replace(R.id.fragment_container_transports, transportFragment)
-                .commit();
+        if (savedInstanceState == null) {
+            activeFragment = settingsFragment;
+            bottomNav.setSelectedItemId(R.id.nav_settings);
+        } else {
+            String tag = savedInstanceState.getString(KEY_ACTIVE_FRAGMENT_TAG);
+            if (tag == null || tag.equals(commandsFragment.getStaticTag())) {
+                activeFragment = commandsFragment;
+            } else if (tag.equals(transportFragment.getStaticTag())) {
+                activeFragment = transportFragment;
+            } else if (tag.equals(settingsFragment.getStaticTag())) {
+                activeFragment = settingsFragment;
+            }
+        }
 
         if (settings.serverAccountExists()) {
             checkServerVersion();
             ServerCommandDownloadService.scheduleJobNow(this);
+
+            // This must be cannot be in the FmdApplication because it needs an Activity context,
+            // because it might show a dialog to choose between different distributors.
             PushReceiver.registerWithUnifiedPush(this);
         }
         if (PushWarningsKt.shouldWarnUnifiedPushRequired(this)) {
@@ -99,9 +133,34 @@ public class MainActivity extends FmdActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, activeFragment, activeFragment.getStaticTag())
+                .commit();
+
         TempContactExpiredService.scheduleJob(this, 0);
         invalidateOptionsMenu();
     }
+
+    private final NavigationBarView.OnItemSelectedListener navListener = (item) -> {
+        switch (item.getItemId()) {
+            case R.id.nav_commands: {
+                activeFragment = commandsFragment;
+                break;
+            }
+            case R.id.nav_transports: {
+                activeFragment = transportFragment;
+                break;
+            }
+            case R.id.nav_settings: {
+                activeFragment = settingsFragment;
+                break;
+            }
+        }
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, activeFragment)
+                .commit();
+        return true;
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,7 +168,7 @@ public class MainActivity extends FmdActivity {
         if (shouldShowSetupWarnings(this)) {
             toolbar.inflateMenu(R.menu.main_app_bar_warnings);
         } else {
-            toolbar.inflateMenu(R.menu.menu_app_bar_home);
+            toolbar.inflateMenu(R.menu.main_app_bar);
         }
         return true;
     }
@@ -119,12 +178,6 @@ public class MainActivity extends FmdActivity {
         if (item.getItemId() == R.id.menuItemSetupWarnings) {
             Intent intent = new Intent(this, SetupWarningsActivity.class);
             startActivity(intent);
-        } else if (item.getItemId() == R.id.menuItemSettings) {
-            SettingsFragment settingsFragment = new SettingsFragment();
-            getSupportFragmentManager().beginTransaction()
-                    .replace(android.R.id.content, settingsFragment)
-                    .addToBackStack(null)
-                    .commit();
         }
         return super.onOptionsItemSelected(item);
     }

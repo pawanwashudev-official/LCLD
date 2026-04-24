@@ -76,7 +76,7 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
         editTextLockScreenMessage.setText((String) settings.get(Settings.SET_LOCKSCREEN_MESSAGE));
         editTextLockScreenMessage.addTextChangedListener(this);
 
-        colorEnabled = getColor(R.color.md_theme_primary);
+        colorEnabled = getColor(R.color.colorPrimary);
         colorDisabled = getColor(R.color.md_theme_error);
         textColorEnabled = getColor(R.color.md_theme_onPrimary);
         textColorDisabled = getColor(R.color.md_theme_onError);
@@ -124,7 +124,7 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
             settings.set(Settings.SET_LOCKSCREEN_MESSAGE, edited.toString());
         } else if (edited == editTextFmdCommand.getText()) {
             if (edited.toString().isEmpty()) {
-                Toast.makeText(this, getString(R.string.Toast_Empty_LCLDCommand), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, getString(R.string.Toast_Empty_FMDCommand), Toast.LENGTH_LONG).show();
                 settings.set(Settings.SET_FMD_COMMAND, "fmd");
             } else {
                 settings.set(Settings.SET_FMD_COMMAND, edited.toString().toLowerCase());
