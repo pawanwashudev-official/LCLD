@@ -115,12 +115,6 @@ public class ServerLocationUploadService extends FmdJobService {
         BackgroundLocationType locType = new BackgroundLocationType(locTypeInt);
 
         String locateCommand = settings.get(Settings.SET_FMD_COMMAND) + " locate";
-        if (locType.getCell()) {
-            locateCommand += " cell";
-        }
-        if (locType.getFused()) {
-            locateCommand += " fused";
-        }
         if (locType.getGps()) {
             locateCommand += " gps";
         }
