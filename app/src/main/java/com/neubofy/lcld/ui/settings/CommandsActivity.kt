@@ -33,7 +33,7 @@ class CommandsActivity : FmdActivity() {
         recyclerView.adapter = CommandsAdapter(commands)
     }
 
-    inner class CommandsAdapter(private val commands: List<Command>) :
+    inner class CommandsAdapter(private val commands: List<com.neubofy.lcld.commands.Command>) :
         RecyclerView.Adapter<CommandsAdapter.ViewHolder>() {
 
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

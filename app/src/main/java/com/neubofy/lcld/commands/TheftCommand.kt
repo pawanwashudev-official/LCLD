@@ -17,7 +17,7 @@ class TheftCommand(context: Context) : Command(context) {
     override val shortDescription = R.string.command_theft_description
     override val requiredPermissions = listOf(LocationPermission())
 
-    override suspend fun <T> executeInternal(args: List<String>, transport: Transport<T>) {
+    override internal suspend fun <T> executeInternal(args: List<String>, transport: Transport<T>) {
         val context = context
         val settings = SettingsRepository.getInstance(context)
         
