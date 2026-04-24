@@ -71,3 +71,5 @@ app/lint/
 
 # Kotlin
 .kotlin/
+build/
+app/build/
