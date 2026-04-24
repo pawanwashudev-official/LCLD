@@ -236,7 +236,7 @@
     <string name="about">About</string>
     <string name="about_source_code">Source code</string>
     <string name="about_wiki">Wiki</string>
-    <string name="about_gratitude">LCLD (Locate &amp; Control Lost Device) developed by Pawan Washudev. \n\n❤️ HUGE THANKS to Nulide and the original LCLD (FMD) team for their incredible open-source work which made this project possible.</string>
+    <string name="about_gratitude">LCLD (Locate &amp; Control Lost Device) is developed by Pawan Washudev.\n\nThis project is a fork of \'Find My Device\' (FMD) by Nulide. ❤️ HUGE THANKS to Nulide and the original FMD team for their incredible open-source work which made this project possible.</string>
     <string name="app_description">LCLD (Locate &amp; Control Lost Device) allows you to remotely locate your device. You can communicate with LCLD over SMS, instant messengers, or using LCLD Server. Locate your device, make it ring, lock it, or wipe it - all from remote.</string>
 
     <!-- Crypto update boarding -->
@@ -304,7 +304,6 @@
     <string name="cmd_lock_description_long">Lock the device and optionally show a message on the lockscreen. After this, biometric unlock is unavailable and your device password is required to unlock the device.</string>
     <string name="cmd_lock_response">The device should now be locked.</string>
 
-    <string name="cmd_flight_description_short">Turns airplane mode on or off</string>
     <string name="cmd_ring_description_short">Make the device ring</string>
     <string name="cmd_ring_response">The device should now be ringing.</string>
 

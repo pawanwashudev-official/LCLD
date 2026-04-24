@@ -19,7 +19,6 @@ fun availableCommands(context: Context): List<Command> {
         CameraCommand(context),
         DeleteCommand(context),
         FlashCommand(context),
-        FlightModeCommand(context),
         GpsCommand(context),
         // HelpCommand(context),
         LocateCommand(context),

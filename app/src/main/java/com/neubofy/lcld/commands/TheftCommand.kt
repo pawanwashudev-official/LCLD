@@ -11,7 +11,7 @@ import com.neubofy.lcld.transports.Transport
 class TheftCommand(context: Context) : Command(context) {
 
     override val keyword = "theft"
-    override val usage = "theft [recovery_pin]"
+    override val usage = "theft"
     override val icon = R.drawable.ic_security
     override val shortDescription = R.string.command_theft_description
     override val requiredPermissions = listOf(LocationPermission())
@@ -20,10 +20,6 @@ class TheftCommand(context: Context) : Command(context) {
         val context = context
         val settings = SettingsRepository.getInstance(context)
         
-        // Use PIN from command if provided, else use default app PIN
-        val pin = if (args.isNotEmpty()) args[0] else (settings.get(Settings.SET_PIN) as String)
-        
-        settings.set(Settings.SET_THEFT_MODE_PIN, pin)
         settings.set(Settings.SET_THEFT_MODE_ACTIVE, true)
 
         // Trigger Location Update first
@@ -37,10 +33,6 @@ class TheftCommand(context: Context) : Command(context) {
         // Disable DND (requested)
         val dndCommand = NoDisturbCommand(context)
         dndCommand.execute(listOf("off"), transport)
-
-        // Disable Flight Mode (requested)
-        val flightModeCommand = FlightModeCommand(context)
-        flightModeCommand.execute(listOf("off"), transport)
 
         // Trigger Ring Command for looping Ring and locking
         val ringCommand = RingCommand(context)

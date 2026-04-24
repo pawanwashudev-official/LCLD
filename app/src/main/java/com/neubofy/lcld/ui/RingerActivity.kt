@@ -11,6 +11,7 @@ import android.media.AudioManager
 import android.media.Ringtone
 import android.os.Build
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.WindowManager
 import android.widget.Button
 import androidx.lifecycle.lifecycleScope
@@ -106,6 +107,16 @@ class RingerActivity : FmdActivity() {
         if (requestCode == 100 && resultCode == RESULT_OK) {
             stopAndFinish()
         }
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN ||
+            keyCode == KeyEvent.KEYCODE_VOLUME_UP ||
+            keyCode == KeyEvent.KEYCODE_VOLUME_MUTE) {
+            raiseVolume()
+            return true
+        }
+        return super.onKeyDown(keyCode, event)
     }
 
     private fun stopAndFinish() {
