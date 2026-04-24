@@ -37,11 +37,11 @@ fun dialogWarnUnifiedPushRequired(context: Context) {
     MaterialAlertDialogBuilder(context)
         .setTitle(R.string.missing_push_title)
         .setMessage(R.string.missing_push_description)
-        .setPositiveButton(R.string.Settings_FMDServer_Push_Register, { dialog, _ ->
+        .setPositiveButton(R.string.Settings_LCLDServer_Push_Register, { dialog, _ ->
             val intent = Intent(context, FMDServerActivity::class.java)
             context.startActivity(intent)
         })
-        .setNeutralButton(R.string.Settings_FMDServer_Push_Open_Help, { _, _ ->
+        .setNeutralButton(R.string.Settings_LCLDServer_Push_Open_Help, { _, _ ->
             openUrl(context, "https://fmd-foss.org/docs/fmd-android/push")
         })
         .setNegativeButton(android.R.string.cancel, { dialog, _ -> dialog.dismiss() })

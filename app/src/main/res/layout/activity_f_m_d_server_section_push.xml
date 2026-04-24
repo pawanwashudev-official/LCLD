@@ -11,16 +11,16 @@
         android:background="?android:attr/listDivider" />
 
     <TextView
-        style="@style/FMD.Text.SectionTitle"
+        style="@style/LCLD.Text.SectionTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_small"
-        android:text="@string/Settings_FMDServer_Push_Title" />
+        android:text="@string/Settings_LCLDServer_Push_Title" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Settings_FMDServer_Push_Description" />
+        android:text="@string/Settings_LCLDServer_Push_Description" />
 
     <LinearLayout
         android:id="@+id/sectionPushDistributor"
@@ -34,7 +34,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/Settings_FMDServer_Push_Distributor" />
+            android:text="@string/Settings_LCLDServer_Push_Distributor" />
 
         <ImageView
             android:id="@+id/buttonOpenPushDistributor"
@@ -65,7 +65,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/Settings_FMDServer_Push_Url" />
+            android:text="@string/Settings_LCLDServer_Push_Url" />
 
         <ImageView
             android:id="@+id/buttonCopyPushUrl"
@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_small"
         android:layout_marginBottom="@dimen/margin_small"
-        android:text="@string/Settings_FMDServer_Push_Info_Sunup" />
+        android:text="@string/Settings_LCLDServer_Push_Info_Sunup" />
 
     <Button
         android:id="@+id/buttonInstallSunup"
@@ -92,7 +92,7 @@
         android:layout_marginTop="@dimen/margin_small"
         android:layout_marginBottom="@dimen/margin_small"
         android:ems="10"
-        android:text="@string/Settings_FMDServer_Push_Install_Sunup" />
+        android:text="@string/Settings_LCLDServer_Push_Install_Sunup" />
 
     <Button
         android:id="@+id/buttonRegisterPush"
@@ -102,7 +102,7 @@
         android:layout_marginTop="@dimen/margin_small"
         android:layout_marginBottom="@dimen/margin_small"
         android:ems="10"
-        android:text="@string/Settings_FMDServer_Push_Register_Again" />
+        android:text="@string/Settings_LCLDServer_Push_Register_Again" />
 
     <Button
         android:id="@+id/buttonOpenUnifiedPush"
@@ -111,5 +111,5 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_normal"
         android:ems="10"
-        android:text="@string/Settings_FMDServer_Push_Open_Help" />
+        android:text="@string/Settings_LCLDServer_Push_Open_Help" />
 </LinearLayout>

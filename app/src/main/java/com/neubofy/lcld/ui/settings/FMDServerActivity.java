@@ -219,21 +219,21 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     }
 
     private void onCopyServerUrlClicked(View view) {
-        String label = getString(R.string.Settings_FMD_Server_Server_URL).replace(":", "");
+        String label = getString(R.string.Settings_LCLD_Server_Server_URL).replace(":", "");
         String text = (String) settings.get(Settings.SET_FMDSERVER_URL);
         Utils.copyToClipboard(this, label, text);
     }
 
     private void onCopyUserIdClicked(View view) {
-        String label = getString(R.string.Settings_FMD_Server_User_ID).replace(":", "");
+        String label = getString(R.string.Settings_LCLD_Server_User_ID).replace(":", "");
         String text = (String) settings.get(Settings.SET_FMDSERVER_ID);
         Utils.copyToClipboard(this, label, text);
     }
 
     private void onDeleteClicked(View view) {
         new MaterialAlertDialogBuilder(this)
-                .setTitle(getString(R.string.Settings_FMDServer_Delete_Account))
-                .setMessage(R.string.Settings_FMDServer_Alert_DeleteData_Desc)
+                .setTitle(getString(R.string.Settings_LCLDServer_Delete_Account))
+                .setMessage(R.string.Settings_LCLDServer_Alert_DeleteData_Desc)
                 .setPositiveButton(getString(R.string.Ok), (dialog, whichButton) -> runDelete())
                 .setNegativeButton(getString(R.string.cancel), null)
                 .show();
@@ -241,8 +241,8 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
     private void onLogoutClicked(View view) {
         new MaterialAlertDialogBuilder(this)
-                .setTitle(getString(R.string.Settings_FMDServer_Logout_Button))
-                .setMessage(R.string.Settings_FMDServer_Logout_Text)
+                .setTitle(getString(R.string.Settings_LCLDServer_Logout_Button))
+                .setMessage(R.string.Settings_LCLDServer_Logout_Text)
                 .setPositiveButton(getString(R.string.Ok), (dialog, whichButton) -> {
                     settings.removeServerAccount();
                     // TODO: API to invalidate access tokens. Maybe combine with session management.
@@ -260,7 +260,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private void onChangePasswordClicked(View view) {
         LayoutInflater inflater = getLayoutInflater();
         final AlertDialog.Builder alert = new MaterialAlertDialogBuilder(this);
-        alert.setTitle(getString(R.string.Settings_FMDServer_Change_Password_Button));
+        alert.setTitle(getString(R.string.Settings_LCLDServer_Change_Password_Button));
         View registerLayout = inflater.inflate(R.layout.dialog_password_change, null);
         alert.setView(registerLayout);
         EditText oldPasswordInput = registerLayout.findViewById(R.id.editTextFMDOldPassword);
@@ -360,7 +360,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         fmdServerRepo.unregister(
                 response -> {
                     loadingDialog.cancel();
-                    Toast.makeText(context, R.string.Settings_FMDServer_Unregister_Success, Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, R.string.Settings_LCLDServer_Unregister_Success, Toast.LENGTH_LONG).show();
                     finish();
                 }, error -> {
                     loadingDialog.cancel();
@@ -379,7 +379,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                             System.currentTimeMillis()
                     );
 
-                    textViewConnectionStatus.setText(R.string.Settings_FMD_Server_Connection_Status_Success);
+                    textViewConnectionStatus.setText(R.string.Settings_LCLD_Server_Connection_Status_Success);
                     textViewConnectionStatus.setTextColor(ContextCompat.getColor(this, R.color.md_theme_primary));
                     textViewConnectionStatus.setOnClickListener(v -> {
                     });
@@ -425,16 +425,16 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         String distributor = UnifiedPush.getDistributor(this);
         if (!distributor.isEmpty()) {
             sectionPushDistributor.setVisibility(View.VISIBLE);
-            textPushDistributor.setText(getString(R.string.Settings_FMDServer_Push_Distributor, distributor));
+            textPushDistributor.setText(getString(R.string.Settings_LCLDServer_Push_Distributor, distributor));
 
             sectionPushUrl.setVisibility(View.VISIBLE);
             String url = (String) settings.get(Settings.SET_FMDSERVER_PUSH_URL);
-            textPushUrl.setText(getString(R.string.Settings_FMDServer_Push_Url, url));
+            textPushUrl.setText(getString(R.string.Settings_LCLDServer_Push_Url, url));
 
             textInfoSunup.setVisibility(View.GONE);
             buttonInstallSunup.setVisibility(View.GONE);
 
-            buttonRegister.setText(R.string.Settings_FMDServer_Push_Register_Again);
+            buttonRegister.setText(R.string.Settings_LCLDServer_Push_Register_Again);
         } else {
             sectionPushDistributor.setVisibility(View.GONE);
             sectionPushUrl.setVisibility(View.GONE);
@@ -442,7 +442,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
             textInfoSunup.setVisibility(View.VISIBLE);
             buttonInstallSunup.setVisibility(View.VISIBLE);
 
-            buttonRegister.setText(R.string.Settings_FMDServer_Push_Register);
+            buttonRegister.setText(R.string.Settings_LCLDServer_Push_Register);
         }
     }
 

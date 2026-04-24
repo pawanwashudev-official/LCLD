@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
-            app:title="@string/Settings_FMDServer_AddAccount" />
+            app:title="@string/Settings_LCLDServer_AddAccount" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_FMDServer_Info" />
+                android:text="@string/Settings_LCLDServer_Info" />
 
             <Button
                 android:id="@+id/buttonOpenFmdServerWebsite"
@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Settings_FMDServer_open_website" />
+                android:text="@string/Settings_LCLDServer_open_website" />
 
             <Button
                 android:id="@+id/buttonUseDefaultServer"
@@ -51,12 +51,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="32dp"
-                android:text="@string/Settings_FMDServer_use_default_server" />
+                android:text="@string/Settings_LCLDServer_use_default_server" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Settings_FMDServer_Server_Url" />
+                android:text="@string/Settings_LCLDServer_Server_Url" />
 
             <EditText
                 android:id="@+id/editTextServerUrl"
@@ -81,13 +81,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/margin_small"
-                android:text="@string/Settings_FMDServer_Register" />
+                android:text="@string/Settings_LCLDServer_Register" />
 
             <Button
                 android:id="@+id/buttonLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Settings_FMDServer_Login" />
+                android:text="@string/Settings_LCLDServer_Login" />
 
         </LinearLayout>
 
