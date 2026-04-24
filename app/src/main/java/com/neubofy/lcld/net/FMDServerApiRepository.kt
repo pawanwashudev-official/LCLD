@@ -66,15 +66,16 @@ class FMDServerApiRepository private constructor(spec: FMDServerApiRepoSpec) {
      * This should be called every time where the settings could have changed.
      */
     private fun loadBaseUrl() {
-        val tempBaseUrl = settingsRepo.get(Settings.SET_FMDSERVER_URL) as String
+        var tempBaseUrl = settingsRepo.get(Settings.SET_FMDSERVER_URL) as String
+        if (tempBaseUrl.isBlank()) {
+            tempBaseUrl = BuildConfig.DEFAULT_FMD_SERVER_URL
+        }
         // ensure the base URL doesn't end in /
         if (tempBaseUrl.endsWith("/")) {
-            settingsRepo.set(
-                Settings.SET_FMDSERVER_URL,
-                tempBaseUrl.trim('/')
-            )
+            tempBaseUrl = tempBaseUrl.trim('/')
+            settingsRepo.set(Settings.SET_FMDSERVER_URL, tempBaseUrl)
         }
-        baseUrl = settingsRepo.get(Settings.SET_FMDSERVER_URL) as String + "/api/v1"
+        baseUrl = "$tempBaseUrl/api/v1"
     }
 
     fun getServerVersion(

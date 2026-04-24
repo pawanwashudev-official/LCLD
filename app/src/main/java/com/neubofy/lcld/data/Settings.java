@@ -110,6 +110,7 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_FMD_CRYPT_PRIVKEY:
                 case SET_FMD_CRYPT_PUBKEY:
                 case SET_FMDSERVER_URL:
+                    return BuildConfig.DEFAULT_FMD_SERVER_URL;
                 case SET_FMDSERVER_PUSH_URL:
                     return "";
                 case SET_FMDSERVER_LAST_CMD_MILLIS:
