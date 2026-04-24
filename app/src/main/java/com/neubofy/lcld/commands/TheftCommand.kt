@@ -5,16 +5,20 @@ import android.content.Intent
 import com.neubofy.lcld.R
 import com.neubofy.lcld.data.Settings
 import com.neubofy.lcld.data.SettingsRepository
+import com.neubofy.lcld.permissions.LocationPermission
 import com.neubofy.lcld.services.TheftService
 import com.neubofy.lcld.transports.Transport
 
 class TheftCommand(context: Context) : Command(context) {
 
     override val keyword = "theft"
-    override val description = R.string.command_theft_description // Need to add this to strings.xml
+    override val usage = "theft [recovery_pin]"
+    override val icon = R.drawable.ic_security
+    override val shortDescription = R.string.command_theft_description
+    override val requiredPermissions = listOf(LocationPermission())
 
-    override suspend fun execute(args: List<String>, transport: Transport<*>) {
-        val context = context ?: return
+    override suspend fun <T> executeInternal(args: List<String>, transport: Transport<T>) {
+        val context = context
         val settings = SettingsRepository.getInstance(context)
         
         // Use PIN from command if provided, else use default app PIN

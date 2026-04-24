@@ -23,6 +23,7 @@ import com.neubofy.lcld.utils.SingletonHolder;
 
 public class LockScreenMessage extends FmdActivity {
 
+    public static final String CUSTOM_TEXT = "CUSTOM_TEXT";
     private SettingsRepository settings;
     private EditText editTextPin;
 
@@ -42,7 +43,7 @@ public class LockScreenMessage extends FmdActivity {
         settings.load();
 
         TextView textView = findViewById(R.id.textViewLockScreenMessage);
-        String message = getIntent().getStringExtra("message");
+        String message = getIntent().getStringExtra(CUSTOM_TEXT);
         if (message != null && !message.isEmpty()) {
             textView.setText(message);
         }

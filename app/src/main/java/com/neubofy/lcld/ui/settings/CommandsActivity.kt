@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.neubofy.lcld.R
+import com.neubofy.lcld.commands.Command
 import com.neubofy.lcld.commands.CommandHandler
 import com.neubofy.lcld.commands.availableCommands
 import com.neubofy.lcld.transports.InAppTransport
@@ -32,10 +33,10 @@ class CommandsActivity : FmdActivity() {
         recyclerView.adapter = CommandsAdapter(commands)
     }
 
-    inner class CommandsAdapter(private val commands: List<com.neubofy.lcld.commands.Command>) :
+    inner class CommandsAdapter(private val commands: List<Command>) :
         RecyclerView.Adapter<CommandsAdapter.ViewHolder>() {
 
-        class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val name: TextView = view.findViewById(R.id.command_name)
             val keyword: TextView = view.findViewById(R.id.command_keyword)
             val testButton: Button = view.findViewById(R.id.button_test)
@@ -59,9 +60,7 @@ class CommandsActivity : FmdActivity() {
                 holder.testButton.visibility = View.VISIBLE
                 holder.testButton.setOnClickListener {
                     val transport = InAppTransport(this@CommandsActivity)
-                    val handler = CommandHandler(transport, false)
                     lifecycleScope.launch {
-                        // Execute with dummy args if needed
                         cmd.execute(emptyList(), transport)
                     }
                 }

@@ -24,6 +24,8 @@ import com.neubofy.lcld.net.MinRequiredVersionResult;
 import com.neubofy.lcld.services.ServerCommandDownloadService;
 import com.neubofy.lcld.services.TempContactExpiredService;
 import com.neubofy.lcld.ui.home.MainPageFragment;
+import com.neubofy.lcld.ui.onboarding.UpdateboardingModernCryptoActivity;
+import com.neubofy.lcld.ui.settings.SettingsActivity;
 import kotlin.Unit;
 
 public class MainActivity extends FmdActivity {
