@@ -1,6 +1,8 @@
 package com.neubofy.lcld.services
 
 import android.app.*
+import android.app.admin.DevicePolicyManager
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.hardware.camera2.CameraManager
@@ -14,7 +16,9 @@ import androidx.core.app.NotificationCompat
 import com.neubofy.lcld.R
 import com.neubofy.lcld.data.Settings
 import com.neubofy.lcld.data.SettingsRepository
+import com.neubofy.lcld.receiver.DeviceAdminReceiver
 import com.neubofy.lcld.ui.LockScreenMessage
+import com.neubofy.lcld.utils.RingerUtils
 import java.util.*
 
 class TheftService : Service() {
@@ -57,6 +61,12 @@ class TheftService : Service() {
     }
 
     private fun startTheftLogic() {
+        val dpm = getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
+        val adminComponent = ComponentName(this, DeviceAdminReceiver::class.java)
+        if (dpm.isAdminActive(adminComponent)) {
+            dpm.lockNow()
+        }
+
         // Show Lock Screen Message
         val lockIntent = Intent(this, LockScreenMessage::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
@@ -104,11 +114,7 @@ class TheftService : Service() {
     private fun performActiveTheftActions() {
         // Ring
         if (ringtone == null || !ringtone!!.isPlaying) {
-            val notification: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
-            ringtone = RingtoneManager.getRingtone(applicationContext, notification)
-            ringtone?.audioAttributes = AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_ALARM)
-                .build()
+            ringtone = RingerUtils.getRingtone(applicationContext, settings.get(Settings.SET_RINGER_TONE) as String)
             ringtone?.play()
         }
 

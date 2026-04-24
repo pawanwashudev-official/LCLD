@@ -37,28 +37,10 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="This device is in Theft Mode. Please enter the recovery PIN to stop the alarm."
+            android:text="This device is in Theft Mode. Please unlock to stop the alarm."
             android:padding="16dp"
             android:textSize="18sp"
             android:textAlignment="center"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/pinInputLayout"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Recovery PIN"
-            android:layout_marginBottom="16dp"
-            app:boxStrokeColor="@color/gold_primary"
-            app:hintTextColor="@color/gold_primary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextPin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberPassword"
-                android:maxLength="8"/>
-        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/buttonUnlock"

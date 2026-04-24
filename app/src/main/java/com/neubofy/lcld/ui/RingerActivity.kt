@@ -2,10 +2,14 @@ package com.neubofy.lcld.ui
 
 import android.app.NotificationManager
 import android.app.NotificationManager.INTERRUPTION_FILTER_ALL
+import android.app.KeyguardManager
+import android.app.admin.DevicePolicyManager
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.media.AudioManager
 import android.media.Ringtone
+import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Button
@@ -15,6 +19,7 @@ import com.neubofy.lcld.commands.RING_DURATION_DEFAULT_SECS
 import com.neubofy.lcld.commands.RING_DURATION_MAX_SECS
 import com.neubofy.lcld.data.Settings
 import com.neubofy.lcld.data.SettingsRepository
+import com.neubofy.lcld.receiver.DeviceAdminReceiver
 import com.neubofy.lcld.utils.RingerUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -54,7 +59,33 @@ class RingerActivity : FmdActivity() {
         )
 
         val buttonStopRinging = findViewById<Button>(R.id.buttonStopRinging)
-        buttonStopRinging.setOnClickListener { finish() }
+        buttonStopRinging.setOnClickListener {
+            val km = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager?
+            if (km == null) {
+                finish()
+                return@setOnClickListener
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                km.requestDismissKeyguard(this, object : KeyguardManager.KeyguardDismissCallback() {
+                    override fun onDismissSucceeded() {
+                        super.onDismissSucceeded()
+                        finish()
+                    }
+                })
+            } else {
+                if (km.isKeyguardSecure) {
+                    val authIntent = km.createConfirmDeviceCredentialIntent(null, null)
+                    if (authIntent != null) {
+                        startActivityForResult(authIntent, 100)
+                    } else {
+                        finish()
+                    }
+                } else {
+                    finish()
+                }
+            }
+        }
 
         val settings = SettingsRepository.Companion.getInstance(this)
         ringtone = RingerUtils.getRingtone(this, settings.get(Settings.SET_RINGER_TONE) as String)
@@ -70,6 +101,13 @@ class RingerActivity : FmdActivity() {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 100 && resultCode == RESULT_OK) {
+            finish()
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
 
@@ -78,6 +116,12 @@ class RingerActivity : FmdActivity() {
     }
 
     private suspend fun startRinging(durationSec: Int) {
+        val dpm = getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
+        val adminComponent = ComponentName(this, DeviceAdminReceiver::class.java)
+        if (dpm.isAdminActive(adminComponent)) {
+            dpm.lockNow()
+        }
+
         raiseVolume()
         ringtone?.play()
 

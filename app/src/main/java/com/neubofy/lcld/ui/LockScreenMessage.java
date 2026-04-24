@@ -1,5 +1,7 @@
 package com.neubofy.lcld.ui;
 
+import android.app.KeyguardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,7 +27,6 @@ public class LockScreenMessage extends FmdActivity {
 
     public static final String CUSTOM_TEXT = "CUSTOM_TEXT";
     private SettingsRepository settings;
-    private EditText editTextPin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,22 +49,46 @@ public class LockScreenMessage extends FmdActivity {
             textView.setText(message);
         }
 
-        editTextPin = findViewById(R.id.editTextPin);
         Button buttonUnlock = findViewById(R.id.buttonUnlock);
 
         buttonUnlock.setOnClickListener(v -> {
-            String enteredPin = editTextPin.getText().toString();
-            String savedPin = (String) settings.get(Settings.SET_THEFT_MODE_PIN);
-            String generalPin = (String) settings.get(Settings.SET_PIN);
-
-            if (enteredPin.equals(savedPin) || enteredPin.equals(generalPin)) {
+            KeyguardManager km = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+            if (km == null) {
                 stopTheft();
+                return;
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                km.requestDismissKeyguard(this, new KeyguardManager.KeyguardDismissCallback() {
+                    @Override
+                    public void onDismissSucceeded() {
+                        super.onDismissSucceeded();
+                        stopTheft();
+                    }
+                });
             } else {
-                Toast.makeText(this, "Incorrect PIN", Toast.LENGTH_SHORT).show();
+                if (km.isKeyguardSecure()) {
+                    Intent authIntent = km.createConfirmDeviceCredentialIntent(null, null);
+                    if (authIntent != null) {
+                        startActivityForResult(authIntent, 100);
+                    } else {
+                        stopTheft();
+                    }
+                } else {
+                    stopTheft();
+                }
             }
         });
         
         hideSystemUI();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 && resultCode == RESULT_OK) {
+            stopTheft();
+        }
     }
 
     private void stopTheft() {
