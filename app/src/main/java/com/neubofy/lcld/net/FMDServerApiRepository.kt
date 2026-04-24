@@ -5,6 +5,7 @@ import com.android.volley.Request.Method
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.VolleyError
+import com.neubofy.lcld.BuildConfig
 import com.neubofy.lcld.data.EncryptedSettingsRepository
 import com.neubofy.lcld.data.FmdLocation
 import com.neubofy.lcld.data.FmdKeyPair
