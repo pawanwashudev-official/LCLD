@@ -107,6 +107,7 @@
             android:showWhenLocked="true"
             android:turnScreenOn="true" />
         <activity android:name=".ui.onboarding.UpdateboardingModernCryptoActivity" />
+        <activity android:name=".ui.settings.SettingsActivity" android:label="@string/Settings_Settings" />
         <activity
             android:name=".ui.LockScreenMessage"
             android:showOnLockScreen="true" />
@@ -219,14 +220,6 @@
                 <action android:name="org.unifiedpush.android.connector.REGISTRATION_REFUSED" />
             </intent-filter>
         </receiver>
-
-        <provider
-            android:name="rikka.shizuku.ShizukuProvider"
-            android:authorities="${applicationId}.shizuku"
-            android:enabled="true"
-            android:exported="true"
-            android:multiprocess="false"
-            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
 
     </application>
 

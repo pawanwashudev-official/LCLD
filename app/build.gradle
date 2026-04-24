@@ -145,10 +145,6 @@ dependencies {
     implementation "org.apache.maven:maven-artifact:3.9.11" // for semantic versions
     implementation 'org.bouncycastle:bcprov-jdk18on:1.83'
 
-    // Shizuku
-    implementation "dev.rikka.shizuku:api:13.1.0"
-    implementation "dev.rikka.shizuku:provider:13.1.0"
-
     // com.google.crypto.tink uses javax.annotation.concurrent.GuardedBy
     // Without this dependency providing GuardedBy, R8 complains when minifying.
     implementation 'com.github.spotbugs:spotbugs-annotations:4.9.8'
