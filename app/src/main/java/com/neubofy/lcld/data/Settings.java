@@ -69,6 +69,8 @@ public class Settings extends HashMap<Integer, Object> {
     public static final String VAL_THEME_DARK = "dark";
     public static final int SET_DYNAMIC_COLORS = 602;
     public static final int SET_CUSTOM_COLOR = 603;
+    public static final int SET_THEFT_MODE_ACTIVE = 701;
+    public static final int SET_THEFT_MODE_PIN = 702;
 
     public Settings() {
     }
@@ -87,7 +89,10 @@ public class Settings extends HashMap<Integer, Object> {
                     //case SET_FMD_CRYPT_NEW_SALT:
                 case SET_UPDATEBOARDING_MODERN_CRYPTO_COMPLETED:
                 case SET_FMD_EDGE_INFO_SHOWN:
+                case SET_THEFT_MODE_ACTIVE:
                     return false;
+                case SET_THEFT_MODE_PIN:
+                    return "";
                 case SET_FMD_LOW_BAT_SEND:
                     return true;
                 case SET_FMD_COMMAND:

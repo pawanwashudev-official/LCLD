@@ -367,6 +367,7 @@
 
     <!-- RingerActivity -->
     <string name="ringer_stop_ringing">STOP RINGING</string>
+    <string name="command_theft_description">Triggers Theft Mode: Persistent alarm, flashing, and location sharing.</string>
 
     <!-- Crash activity -->
     <string name="crashed_title">Crash report</string>

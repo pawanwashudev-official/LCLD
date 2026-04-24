@@ -21,6 +21,10 @@ class MainPageFragment : TaggedFragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_main_page, container, false)
 
+        view.findViewById<MaterialCardView>(R.id.card_commands).setOnClickListener {
+            startActivity(Intent(requireContext(), com.neubofy.lcld.ui.settings.CommandsActivity::class.java))
+        }
+
         view.findViewById<MaterialCardView>(R.id.card_fmd_server).setOnClickListener {
             startActivity(Intent(requireContext(), FMDServerActivity::class.java))
         }

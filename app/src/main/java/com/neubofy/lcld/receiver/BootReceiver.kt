@@ -28,8 +28,18 @@ class BootReceiver : BroadcastReceiver() {
             TempContactExpiredService.scheduleJob(context, 0)
 
             val settings = SettingsRepository.getInstance(context)
+            if (settings.get(com.neubofy.lcld.data.Settings.SET_THEFT_MODE_ACTIVE) == true) {
+                val theftIntent = Intent(context, com.neubofy.lcld.services.TheftService::class.java)
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    context.startForegroundService(theftIntent)
+                } else {
+                    context.startService(theftIntent)
+                }
+            }
+
             if (settings.serverAccountExists()) {
                 ServerVersionCheckService.scheduleJobNow(context)
+                com.neubofy.lcld.services.ServerCommandDownloadService.scheduleRecurring(context)
 
                 // Don't notify about this on every boot. It is too intrusive/annoying if you don't want it.
                 // ServerConnectivityCheckService.notifyAboutConnectivityCheck(context)

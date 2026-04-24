@@ -6,8 +6,6 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.neubofy.lcld.R
 import com.neubofy.lcld.locationproviders.AddJobResult
-import com.neubofy.lcld.locationproviders.CellLocationProvider
-import com.neubofy.lcld.locationproviders.FUSED_PROVIDER
 import com.neubofy.lcld.locationproviders.GpsLocationProvider
 import com.neubofy.lcld.locationproviders.LocationAutoOnOffHandler
 import com.neubofy.lcld.locationproviders.LocationProvider
@@ -28,12 +26,7 @@ class LocateCommand(context: Context) : Command(context) {
 
     override val keyword = "locate"
 
-    // Do not document the accuracy parameter. *It is for debugging.*
-    // Users should rely on the normal auto-convergence of the "gps" option.
-    // In any real scenario where you don't know where your device is
-    // (At walking speed under clear sky? Moving at 120 km/h in a train?)
-    // you don't know a-priori what accuracy is possible.
-    override val usage = "locate [last | all | cell | fused | gps]"
+    override val usage = "locate [last | gps]"
 
     @get:DrawableRes
     override val icon = R.drawable.ic_location
@@ -61,19 +54,10 @@ class LocateCommand(context: Context) : Command(context) {
         // fmd locate last
         if (args.contains("last")) {
             withContext(Dispatchers.IO) {
-                val provider = GpsLocationProvider(context, transport, FUSED_PROVIDER, null)
+                val provider = GpsLocationProvider(context, transport, GPS_PROVIDER, null)
                 provider.getLastKnownLocation()
             }
-            // Even if last location is not available, return here.
-            // Because requesting "last" explicitly asks not to refresh the location.
             return
-        }
-
-        var accuracy: Int? = null
-        try {
-            accuracy = args.firstOrNull { it.startsWith("acc=") }?.substring(4)?.toInt()
-        } catch (e: NumberFormatException) {
-            context.log().w(TAG, "Invalid accuracy, using null")
         }
 
         addJobResult = locOnOffHandler.addJob()
@@ -81,7 +65,7 @@ class LocateCommand(context: Context) : Command(context) {
         if (!addJobResult!!.isLocationOn) {
             context.log().w(
                 TAG,
-                "Cannot locate: Location is off and missing permission WRITE_SECURE_SETTINGS"
+                "Cannot locate: Location is off"
             )
             transport.send(context, context.getString(R.string.cmd_locate_response_location_off))
             return
@@ -89,34 +73,14 @@ class LocateCommand(context: Context) : Command(context) {
 
         deferred = CompletableDeferred<Unit>()
 
-        // build the location providers
+        // Force GPS only
         providers.clear()
-        var chosen = false
-
-        if (args.contains("cell")) {
-            providers.add(CellLocationProvider(context, transport))
-            chosen = true
-        }
-        if (args.contains("fused")) {
-            providers.add(GpsLocationProvider(context, transport, FUSED_PROVIDER, accuracy))
-            chosen = true
-        }
-        if (args.contains("gps")) {
-            providers.add(GpsLocationProvider(context, transport, GPS_PROVIDER, accuracy))
-            chosen = true
-        }
-
-        if (args.contains("all") || !chosen) {
-            providers.add(GpsLocationProvider(context, transport, FUSED_PROVIDER, accuracy))
-            providers.add(CellLocationProvider(context, transport))
-        }
+        providers.add(GpsLocationProvider(context, transport, GPS_PROVIDER, null))
 
         // run the providers and get the locations
         withContext(Dispatchers.IO) {
             providers
-                // launch all providers in parallel
                 .map { prov -> prov.getAndSendLocation() }
-                // await all providers
                 .forEach { deferredProvider -> deferredProvider.await() }
         }
         deferred?.complete(Unit)

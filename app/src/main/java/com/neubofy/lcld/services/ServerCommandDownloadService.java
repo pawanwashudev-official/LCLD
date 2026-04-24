@@ -63,22 +63,36 @@ public class ServerCommandDownloadService extends FmdJobService {
     }
 
     public static void scheduleJobNow(Context context) {
-        int jobId = JOB_ID_BASE + ThreadLocalRandom.current().nextInt(0, JOB_ID_BASE);
+        schedule(context, true);
+    }
+
+    public static void scheduleRecurring(Context context) {
+        schedule(context, false);
+    }
+
+    private static void schedule(Context context, boolean now) {
+        int jobId = JOB_ID_BASE + (now ? ThreadLocalRandom.current().nextInt(0, JOB_ID_BASE) : 0);
 
         ComponentName serviceComponent = new ComponentName(context, ServerCommandDownloadService.class);
         JobInfo.Builder builder = new JobInfo.Builder(jobId, serviceComponent);
         builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            builder.setExpedited(true);
+
+        if (now) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                builder.setExpedited(true);
+            } else {
+                builder.setMinimumLatency(0);
+                builder.setOverrideDeadline(1000);
+            }
         } else {
-            // expedited jobs cannot have a delay
-            builder.setMinimumLatency(0);
-            builder.setOverrideDeadline(1000);
+            // Periodic polling every 15 minutes (Android minimum)
+            builder.setPeriodic(15 * 60 * 1000);
+            builder.setPersisted(true);
         }
+
         JobScheduler jobScheduler = context.getSystemService(JobScheduler.class);
         jobScheduler.schedule(builder.build());
     }
-
     private void onResponse(String remoteCommand) {
         FmdLogKt.log(this).i(TAG, "Received remote command '" + remoteCommand + "'");
         if (remoteCommand.isBlank()) {

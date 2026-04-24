@@ -1,57 +1,103 @@
 package com.neubofy.lcld.ui;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.neubofy.lcld.R;
-import com.neubofy.lcld.utils.FmdLogKt;
-
+import com.neubofy.lcld.data.Settings;
+import com.neubofy.lcld.data.SettingsRepository;
+import com.neubofy.lcld.services.TheftService;
+import com.neubofy.lcld.utils.SingletonHolder;
 
 public class LockScreenMessage extends FmdActivity {
 
-    private final String TAG = LockScreenMessage.class.getSimpleName();
-
-    public static final String SENDER = "sender";
-    public static final String SENDER_TYPE = "type";
-    public static final String CUSTOM_TEXT = "ctext";
-    // private SmsTransport transport = null;
+    private SettingsRepository settings;
+    private EditText editTextPin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        // Ensure it shows over lock screen
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |
+                WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
+                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
+                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
         setContentView(R.layout.activity_lock_screen_message);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
-                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
 
-        Bundle bundle = getIntent().getExtras();
-        // TODO: bring back passing this data??
-        //if (bundle.getString(SENDER_TYPE) == "SMS") {
-        //    transport = new SmsTransport(bundle.getString(SENDER));
-        //}
+        settings = SettingsRepository.Companion.getInstance(this);
+        settings.load();
 
-        TextView tvLockScreenMessage = findViewById(R.id.textViewLockScreenMessage);
-        if (bundle != null && bundle.containsKey(CUSTOM_TEXT)) {
-            tvLockScreenMessage.setText(bundle.getString(CUSTOM_TEXT));
-        } else {
-            FmdLogKt.log(this).w(TAG, "No message to show, finishing LockScreenMessage.");
-            finish();
+        TextView textView = findViewById(R.id.textViewLockScreenMessage);
+        String message = getIntent().getStringExtra("message");
+        if (message != null && !message.isEmpty()) {
+            textView.setText(message);
         }
+
+        editTextPin = findViewById(R.id.editTextPin);
+        Button buttonUnlock = findViewById(R.id.buttonUnlock);
+
+        buttonUnlock.setOnClickListener(v -> {
+            String enteredPin = editTextPin.getText().toString();
+            String savedPin = (String) settings.get(Settings.SET_THEFT_MODE_PIN);
+            String generalPin = (String) settings.get(Settings.SET_PIN);
+
+            if (enteredPin.equals(savedPin) || enteredPin.equals(generalPin)) {
+                stopTheft();
+            } else {
+                Toast.makeText(this, "Incorrect PIN", Toast.LENGTH_SHORT).show();
+            }
+        });
+        
+        hideSystemUI();
     }
 
-    /*
+    private void stopTheft() {
+        Intent stopIntent = new Intent(this, TheftService.class);
+        stopIntent.setAction(TheftService.ACTION_STOP_THEFT);
+        startService(stopIntent);
+        finish();
+    }
+
     @Override
-    protected void onPause() {
-        transport.send(this, getString(R.string.LockScreen_Usage_detectd));
-        super.onPause();
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // Prevent back and other buttons from closing the activity
+        return true;
     }
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        transport.send(this, getString(R.string.LockScreen_Backbutton_pressed));
-        finish();
+        // Do nothing
     }
-     */
+
+    private void hideSystemUI() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            final WindowInsetsController controller = getWindow().getInsetsController();
+            if (controller != null) {
+                controller.hide(WindowInsets.Type.statusBars() | WindowInsets.Type.navigationBars());
+                controller.setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+            }
+        } else {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN);
+        }
+    }
 }

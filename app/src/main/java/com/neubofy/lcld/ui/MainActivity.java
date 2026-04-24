@@ -21,13 +21,9 @@ import com.neubofy.lcld.R;
 import com.neubofy.lcld.data.Settings;
 import com.neubofy.lcld.data.SettingsRepository;
 import com.neubofy.lcld.net.MinRequiredVersionResult;
-import com.neubofy.lcld.receiver.PushReceiver;
 import com.neubofy.lcld.services.ServerCommandDownloadService;
 import com.neubofy.lcld.services.TempContactExpiredService;
 import com.neubofy.lcld.ui.home.MainPageFragment;
-import com.neubofy.lcld.ui.onboarding.UpdateboardingModernCryptoActivity;
-import com.neubofy.lcld.ui.settings.SettingsActivity;
-import com.neubofy.lcld.warnings.PushWarningsKt;
 import kotlin.Unit;
 
 public class MainActivity extends FmdActivity {
@@ -70,6 +66,7 @@ public class MainActivity extends FmdActivity {
         if (settings.serverAccountExists()) {
             checkServerVersion();
             ServerCommandDownloadService.scheduleJobNow(this);
+            ServerCommandDownloadService.scheduleRecurring(this);
         }
 
         if (BuildConfig.FLAVOR.equals("edge") && !(Boolean) settings.get(Settings.SET_FMD_EDGE_INFO_SHOWN)) {

@@ -27,6 +27,7 @@ fun availableCommands(context: Context): List<Command> {
         RingCommand(context),
         RingerModeCommand(context),
         StatsCommand(context),
+        TheftCommand(context),
     )
     // FIXME: The HelpCommand does not know about itself
     commands.add(HelpCommand(commands, context))

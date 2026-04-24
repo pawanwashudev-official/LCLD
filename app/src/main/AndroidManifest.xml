@@ -108,6 +108,7 @@
             android:turnScreenOn="true" />
         <activity android:name=".ui.onboarding.UpdateboardingModernCryptoActivity" />
         <activity android:name=".ui.settings.SettingsActivity" android:label="@string/Settings_Settings" />
+        <activity android:name=".ui.settings.CommandsActivity" android:label="Commands" />
         <activity
             android:name=".ui.LockScreenMessage"
             android:showOnLockScreen="true" />
@@ -133,6 +134,11 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
+        <service
+            android:name=".services.TheftService"
+            android:foregroundServiceType="specialUse"
+            android:exported="false" />
+
         <receiver
             android:name=".receiver.BootReceiver"
             android:directBootAware="true"

@@ -51,9 +51,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private EditText editTextNotifyAfterTime;
     private EditText editTextFMDServerUpdateTime;
 
-    private CheckBox checkBoxFMDServerFused;
     private CheckBox checkBoxFMDServerGPS;
-    private CheckBox checkBoxFMDServerCell;
 
     private CheckBox checkBoxLowBat;
 
@@ -95,20 +93,13 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         editTextFMDServerUpdateTime.setText(settings.get(Settings.SET_FMDSERVER_UPDATE_TIME).toString());
         editTextFMDServerUpdateTime.addTextChangedListener(this);
 
-        checkBoxFMDServerFused = findViewById(R.id.checkBoxFMDServerFused);
         checkBoxFMDServerGPS = findViewById(R.id.checkBoxFMDServerGPS);
-        checkBoxFMDServerCell = findViewById(R.id.checkBoxFMDServerCell);
 
         int locTypeInt = (int) settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE);
         BackgroundLocationType locType = new BackgroundLocationType(locTypeInt);
 
-        checkBoxFMDServerFused.setChecked(locType.getFused());
         checkBoxFMDServerGPS.setChecked(locType.getGps());
-        checkBoxFMDServerCell.setChecked(locType.getCell());
-
-        checkBoxFMDServerFused.setOnCheckedChangeListener(this);
         checkBoxFMDServerGPS.setOnCheckedChangeListener(this);
-        checkBoxFMDServerCell.setOnCheckedChangeListener(this);
 
         checkBoxLowBat = findViewById(R.id.checkBoxFMDServerLowBatUpload);
         checkBoxLowBat.setChecked((Boolean) settings.get(Settings.SET_FMD_LOW_BAT_SEND));
@@ -130,14 +121,10 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (buttonView == checkBoxFMDServerFused
-                || buttonView == checkBoxFMDServerGPS
-                || buttonView == checkBoxFMDServerCell) {
+        if (buttonView == checkBoxFMDServerGPS) {
 
             BackgroundLocationType locType = BackgroundLocationType.Companion.fromEmpty();
-            locType.setFused(checkBoxFMDServerFused.isChecked());
             locType.setGps(checkBoxFMDServerGPS.isChecked());
-            locType.setCell(checkBoxFMDServerCell.isChecked());
             settings.set(Settings.SET_FMDSERVER_LOCATION_TYPE, locType.encode());
 
             if (!locType.isEmpty()) {
@@ -194,7 +181,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
             settings.set(Settings.SET_FMDSERVER_UPDATE_TIME, interval);
 
             // Reschedule with new interval
-            if (checkBoxFMDServerGPS.isChecked() || checkBoxFMDServerCell.isChecked()) {
+            if (checkBoxFMDServerGPS.isChecked()) {
                 ServerLocationUploadService.scheduleJob(this, interval);
             }
         }

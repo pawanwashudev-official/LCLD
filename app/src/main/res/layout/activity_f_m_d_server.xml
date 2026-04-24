@@ -262,23 +262,11 @@
                 android:text="@string/Settings_LCLDServer_Location_Type_Description" />
 
             <CheckBox
-                android:id="@+id/checkBoxFMDServerFused"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/Fused" />
-
-            <CheckBox
                 android:id="@+id/checkBoxFMDServerGPS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/GPS" />
-
-            <CheckBox
-                android:id="@+id/checkBoxFMDServerCell"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/Cell" />
+                android:text="@string/GPS" />
 
             <View
                 android:layout_width="match_parent"

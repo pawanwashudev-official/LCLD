@@ -1,27 +1,23 @@
 package com.neubofy.lcld.data
 
 class BackgroundLocationType(inState: Int) {
-    var fused: Boolean = (inState and FUSED) != 0
     var gps: Boolean = (inState and GPS) != 0
-    var cell: Boolean = (inState and CELL) != 0
 
     /**
      * Use bitmasking to encode the state into an integer that can be persisted in the settings.
      */
     fun encode(): Int {
         var state = BASE
-        if (fused) state = state or FUSED
         if (gps) state = state or GPS
-        if (cell) state = state or CELL
         return state
     }
 
     fun isAll(): Boolean {
-        return fused && gps && cell
+        return gps
     }
 
     fun isEmpty(): Boolean {
-        return !fused && !gps && !cell
+        return !gps
     }
 
     companion object {
@@ -31,14 +27,11 @@ class BackgroundLocationType(inState: Int) {
         @JvmStatic
         var EMPTY = BASE // only for Java interop
 
-        // One for each relevant "locate" option.
-        const val FUSED = 0x1
+        // Only GPS remains supported
         const val GPS = 0x2
-        const val CELL = 0x4
 
         fun fromEmpty(): BackgroundLocationType {
             return BackgroundLocationType(BASE)
-
         }
 
         // OLD ENCODING:
@@ -48,14 +41,9 @@ class BackgroundLocationType(inState: Int) {
 
             when (inState) {
                 0 -> state.gps = true
-                1 -> state.cell = true
-                2 -> {
-                    state.gps = true
-                    state.cell = true
-                }
-
+                2 -> state.gps = true
                 else -> {
-                    // invalid state
+                    // other states ignored
                 }
             }
 
