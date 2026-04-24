@@ -13,26 +13,30 @@ import com.neubofy.lcld.ui.settings.FMDServerActivity
 
 class MainPageFragment : TaggedFragment() {
 
+    override fun getStaticTag() = "MainPageFragment"
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_main_page, container, false)
 
-        val cardServer = view.findViewById<MaterialCardView>(R.id.card_fmd_server)
-        val cardContacts = view.findViewById<MaterialCardView>(R.id.card_allowed_contacts)
-        val cardPermissions = view.findViewById<MaterialCardView>(R.id.card_permission_manager)
-
-        cardServer.setOnClickListener {
+        view.findViewById<MaterialCardView>(R.id.card_fmd_server).setOnClickListener {
             startActivity(Intent(requireContext(), FMDServerActivity::class.java))
         }
 
-        cardContacts.setOnClickListener {
+        view.findViewById<MaterialCardView>(R.id.card_allowed_contacts).setOnClickListener {
             startActivity(Intent(requireContext(), AllowlistActivity::class.java))
         }
 
-        cardPermissions.setOnClickListener {
-            // Replace with Permission Manager Fragment
+        view.findViewById<MaterialCardView>(R.id.card_transport_channels).setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, TransportListFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        view.findViewById<MaterialCardView>(R.id.card_permission_manager).setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, PermissionManagerFragment())
                 .addToBackStack(null)

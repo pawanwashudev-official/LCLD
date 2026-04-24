@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:padding="8dp"
+    android:padding="12dp"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -19,19 +19,29 @@
             android:id="@+id/perm_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
             android:textStyle="bold"
             tools:text="Location" />
 
+        <!-- Description hidden, replaced by info icon popup -->
         <TextView
             android:id="@+id/perm_description"
-            style="@style/TextAppearance.Material3.BodySmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:visibility="gone"
-            tools:text="This permission is needed because xyz."
-            tools:visibility="visible" />
+            android:visibility="gone" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ic_info"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:padding="4dp"
+        android:src="@drawable/ic_info"
+        android:layout_marginEnd="8dp"
+        app:tint="@color/gold_primary"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless" />
 
     <Button
         android:id="@+id/button_grant"
@@ -42,8 +52,9 @@
 
     <ImageView
         android:id="@+id/ic_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_check" />
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_check"
+        app:tint="@color/gold_primary" />
 
 </LinearLayout>
