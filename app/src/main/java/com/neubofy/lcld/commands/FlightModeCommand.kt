@@ -30,9 +30,14 @@ class FlightModeCommand(context: Context) : Command(context) {
                 Settings.Global.AIRPLANE_MODE_ON,
                 value
             )
-            val intent = Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED)
-            intent.putExtra("state", enable)
-            context.sendBroadcast(intent)
+
+            try {
+                val intent = Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+                intent.putExtra("state", enable)
+                context.sendBroadcast(intent)
+            } catch (e: SecurityException) {
+                // Ignore security exception for protected broadcast. The setting is already changed.
+            }
 
             val status = if (enable) "ON" else "OFF"
             transport.send(context, "Flight mode set to $status")

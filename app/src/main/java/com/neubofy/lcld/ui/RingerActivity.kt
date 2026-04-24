@@ -62,7 +62,7 @@ class RingerActivity : FmdActivity() {
         buttonStopRinging.setOnClickListener {
             val km = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager?
             if (km == null) {
-                finish()
+                stopAndFinish()
                 return@setOnClickListener
             }
 
@@ -70,7 +70,7 @@ class RingerActivity : FmdActivity() {
                 km.requestDismissKeyguard(this, object : KeyguardManager.KeyguardDismissCallback() {
                     override fun onDismissSucceeded() {
                         super.onDismissSucceeded()
-                        finish()
+                        stopAndFinish()
                     }
                 })
             } else {
@@ -79,10 +79,10 @@ class RingerActivity : FmdActivity() {
                     if (authIntent != null) {
                         startActivityForResult(authIntent, 100)
                     } else {
-                        finish()
+                        stopAndFinish()
                     }
                 } else {
-                    finish()
+                    stopAndFinish()
                 }
             }
         }
@@ -104,8 +104,14 @@ class RingerActivity : FmdActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 100 && resultCode == RESULT_OK) {
-            finish()
+            stopAndFinish()
         }
+    }
+
+    private fun stopAndFinish() {
+        val settings = SettingsRepository.Companion.getInstance(this)
+        settings.set(Settings.SET_THEFT_MODE_ACTIVE, false)
+        finish()
     }
 
     override fun onDestroy() {
@@ -125,8 +131,17 @@ class RingerActivity : FmdActivity() {
         raiseVolume()
         ringtone?.play()
 
+        // Push volume up to 100% every 3 seconds to prevent manual volume down override
+        val volumeJob = lifecycleScope.launch(Dispatchers.Default) {
+            while (true) {
+                delay(3000L)
+                raiseVolume()
+            }
+        }
+
         delay(durationSec * 1000L)
 
+        volumeJob.cancel()
         finish()
     }
 

@@ -6,7 +6,6 @@ import com.neubofy.lcld.R
 import com.neubofy.lcld.data.Settings
 import com.neubofy.lcld.data.SettingsRepository
 import com.neubofy.lcld.permissions.LocationPermission
-import com.neubofy.lcld.services.TheftService
 import com.neubofy.lcld.transports.Transport
 
 class TheftCommand(context: Context) : Command(context) {
@@ -43,12 +42,8 @@ class TheftCommand(context: Context) : Command(context) {
         val flightModeCommand = FlightModeCommand(context)
         flightModeCommand.execute(listOf("off"), transport)
 
-        // Start Background Service for looping Ring/Flash/Vibrate
-        val theftIntent = Intent(context, TheftService::class.java)
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            context.startForegroundService(theftIntent)
-        } else {
-            context.startService(theftIntent)
-        }
+        // Trigger Ring Command for looping Ring and locking
+        val ringCommand = RingCommand(context)
+        ringCommand.execute(listOf("long"), transport)
     }
 }

@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="This device is in Theft Mode. Please unlock to stop the alarm."
+            android:text="This device is locked."
             android:padding="16dp"
             android:textSize="18sp"
             android:textAlignment="center"/>
@@ -46,7 +46,7 @@
             android:id="@+id/buttonUnlock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="STOP THEFT MODE"
+            android:text="DISMISS"
             android:backgroundTint="@color/gold_primary"
             android:textColor="@color/md_theme_onPrimary"
             android:layout_marginBottom="32dp"/>

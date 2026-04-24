@@ -1,7 +1,5 @@
 package com.neubofy.lcld.ui;
 
-import android.app.KeyguardManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,9 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.neubofy.lcld.R;
-import com.neubofy.lcld.data.Settings;
 import com.neubofy.lcld.data.SettingsRepository;
-import com.neubofy.lcld.services.TheftService;
 import com.neubofy.lcld.utils.SingletonHolder;
 
 public class LockScreenMessage extends FmdActivity {
@@ -52,50 +48,10 @@ public class LockScreenMessage extends FmdActivity {
         Button buttonUnlock = findViewById(R.id.buttonUnlock);
 
         buttonUnlock.setOnClickListener(v -> {
-            KeyguardManager km = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
-            if (km == null) {
-                stopTheft();
-                return;
-            }
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                km.requestDismissKeyguard(this, new KeyguardManager.KeyguardDismissCallback() {
-                    @Override
-                    public void onDismissSucceeded() {
-                        super.onDismissSucceeded();
-                        stopTheft();
-                    }
-                });
-            } else {
-                if (km.isKeyguardSecure()) {
-                    Intent authIntent = km.createConfirmDeviceCredentialIntent(null, null);
-                    if (authIntent != null) {
-                        startActivityForResult(authIntent, 100);
-                    } else {
-                        stopTheft();
-                    }
-                } else {
-                    stopTheft();
-                }
-            }
+            finish();
         });
         
         hideSystemUI();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 100 && resultCode == RESULT_OK) {
-            stopTheft();
-        }
-    }
-
-    private void stopTheft() {
-        Intent stopIntent = new Intent(this, TheftService.class);
-        stopIntent.setAction(TheftService.ACTION_STOP_THEFT);
-        startService(stopIntent);
-        finish();
     }
 
     @Override
