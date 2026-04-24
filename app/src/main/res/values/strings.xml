@@ -304,6 +304,7 @@
     <string name="cmd_lock_description_long">Lock the device and optionally show a message on the lockscreen. After this, biometric unlock is unavailable and your device password is required to unlock the device.</string>
     <string name="cmd_lock_response">The device should now be locked.</string>
 
+    <string name="cmd_flight_description_short">Turns airplane mode on or off</string>
     <string name="cmd_ring_description_short">Make the device ring</string>
     <string name="cmd_ring_response">The device should now be ringing.</string>
 

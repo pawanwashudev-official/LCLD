@@ -39,6 +39,10 @@ class TheftCommand(context: Context) : Command(context) {
         val dndCommand = NoDisturbCommand(context)
         dndCommand.execute(listOf("off"), transport)
 
+        // Disable Flight Mode (requested)
+        val flightModeCommand = FlightModeCommand(context)
+        flightModeCommand.execute(listOf("off"), transport)
+
         // Start Background Service for looping Ring/Flash/Vibrate
         val theftIntent = Intent(context, TheftService::class.java)
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {

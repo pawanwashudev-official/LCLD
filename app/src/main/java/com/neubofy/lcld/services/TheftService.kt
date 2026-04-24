@@ -73,6 +73,8 @@ class TheftService : Service() {
         }
         startActivity(lockIntent)
 
+        timerTask?.cancel()
+
         // 3 min ON, 3 min OFF cycle
         timerTask = Timer()
         timerTask?.scheduleAtFixedRate(object : TimerTask() {
@@ -95,16 +97,20 @@ class TheftService : Service() {
         handler.post(object : Runnable {
             override fun run() {
                 if (isRingingPeriod) {
-                    audioManager.setStreamVolume(
-                        AudioManager.STREAM_RING,
-                        audioManager.getStreamMaxVolume(AudioManager.STREAM_RING),
-                        0
-                    )
-                    audioManager.setStreamVolume(
-                        AudioManager.STREAM_ALARM,
-                        audioManager.getStreamMaxVolume(AudioManager.STREAM_ALARM),
-                        0
-                    )
+                    try {
+                        audioManager.setStreamVolume(
+                            AudioManager.STREAM_RING,
+                            audioManager.getStreamMaxVolume(AudioManager.STREAM_RING),
+                            0
+                        )
+                        audioManager.setStreamVolume(
+                            AudioManager.STREAM_ALARM,
+                            audioManager.getStreamMaxVolume(AudioManager.STREAM_ALARM),
+                            0
+                        )
+                    } catch (e: Exception) {
+                        // Ignore exceptions like SecurityException when DND is active
+                    }
                 }
                 handler.postDelayed(this, 3000)
             }
