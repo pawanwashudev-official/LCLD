@@ -1,4 +1,4 @@
-﻿package com.neubofy.lcld.ui.settings
+package com.neubofy.lcld.ui.settings
 
 import android.app.Activity
 import android.content.Context
@@ -71,23 +71,22 @@ class SettingsFragment : TaggedFragment() {
             }
 
             2 -> settingIntent = Intent(context, AllowlistActivity::class.java)
-            3 -> settingIntent = Intent(context, OpenCellIdActivity::class.java)
-            4 -> settingIntent = Intent(context, AppearanceActivity::class.java)
-            5 -> {
+            3 -> settingIntent = Intent(context, AppearanceActivity::class.java)
+            4 -> {
                 val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
                 intent.putExtra(Intent.EXTRA_TITLE, filenameForExport())
                 intent.setType("*/*")
                 startActivityForResult(intent, EXPORT_REQ_CODE)
             }
 
-            6 -> {
+            5 -> {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
                 intent.setType("*/*")
                 startActivityForResult(intent, IMPORT_REQ_CODE)
             }
 
-            7 -> settingIntent = Intent(context, LogViewActivity::class.java)
-            8 -> {
+            6 -> settingIntent = Intent(context, LogViewActivity::class.java)
+            7 -> {
                 val activityTitle = getString(R.string.Settings_About)
                 settingIntent = LibsBuilder().withActivityTitle(activityTitle).withAboutDescription(getString(R.string.about_gratitude))
                     .withListener(AboutLibsListener.listener).intent(context)

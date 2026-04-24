@@ -84,9 +84,6 @@
             android:name=".ui.settings.FMDServerActivity"
             android:label="@string/Settings_LCLDServer" />
         <activity
-            android:name=".ui.settings.OpenCellIdActivity"
-            android:label="@string/Settings_OpenCellId" />
-        <activity
             android:name=".ui.settings.FMDConfigActivity"
             android:label="@string/Settings_LCLDConfig" />
         <activity
@@ -214,18 +211,6 @@
                 android:name="autoStoreLocales"
                 android:value="true" />
         </service>
-
-        <receiver
-            android:name=".receiver.PushReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="org.unifiedpush.android.connector.MESSAGE" />
-                <action android:name="org.unifiedpush.android.connector.UNREGISTERED" />
-                <action android:name="org.unifiedpush.android.connector.NEW_ENDPOINT" />
-                <action android:name="org.unifiedpush.android.connector.REGISTRATION_FAILED" />
-                <action android:name="org.unifiedpush.android.connector.REGISTRATION_REFUSED" />
-            </intent-filter>
-        </receiver>
 
     </application>
 

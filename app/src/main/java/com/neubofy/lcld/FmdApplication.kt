@@ -6,7 +6,6 @@ import android.service.notification.StatusBarNotification
 import com.neubofy.lcld.data.Settings
 import com.neubofy.lcld.data.SettingsRepository
 import com.neubofy.lcld.data.UncaughtExceptionHandler.Companion.initUncaughtExceptionHandler
-import com.neubofy.lcld.receiver.PushReceiver
 import com.neubofy.lcld.services.FmdBatteryLowService
 import com.neubofy.lcld.services.ServerConnectivityCheckService
 import com.neubofy.lcld.services.ServerLocationUploadService
@@ -14,8 +13,6 @@ import com.neubofy.lcld.ui.onboarding.PinUpdate
 import com.neubofy.lcld.ui.onboarding.UpdateboardingModernCryptoActivity
 import com.neubofy.lcld.utils.Notifications
 import com.neubofy.lcld.utils.log
-import com.neubofy.lcld.warnings.notifyWarnUnifiedPushRequired
-import com.neubofy.lcld.warnings.shouldWarnUnifiedPushRequired
 
 
 class FmdApplication : Application() {
@@ -27,7 +24,7 @@ class FmdApplication : Application() {
     // Workaround to "pass" this from the NotificationListenerService to the CommandExecutionWorker.
     // The problem is that we cannot pass objects between them directly.
     // But we also cannot retrieve the notification in the worker by ID,
-    // because notificationManager.activeNotifications only returns the notifications posted by our own app.
+    // because notificationManager.activeNotifications only returns the notifications posted by our own app.    
     var latestStatusBarNotification: StatusBarNotification? = null
 
     override fun onCreate() {
@@ -60,19 +57,10 @@ class FmdApplication : Application() {
             }
             ServerLocationUploadService.scheduleRecurring(this)
             ServerConnectivityCheckService.scheduleJob(this)
-
-            if (shouldWarnUnifiedPushRequired(this)) {
-                notifyWarnUnifiedPushRequired(this)
-            }
-
-            // Do NOT try to register with UnifiedPush.
-            // This needs a UI context, and should thus happen in the MainActivity.
         } else {
             FmdBatteryLowService.cancelJob(this)
             ServerLocationUploadService.cancelJob(this)
             ServerConnectivityCheckService.cancelJob(this)
-
-            PushReceiver.unregisterWithUnifiedPush(this)
         }
     }
 }
