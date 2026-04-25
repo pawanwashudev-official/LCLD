@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
+    android:padding="12dp"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -17,18 +19,15 @@
             android:id="@+id/perm_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
             tools:text="Location" />
 
         <TextView
             android:id="@+id/perm_description"
-            style="@style/TextAppearance.Material3.BodySmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="@dimen/margin_normal"
-            android:visibility="gone"
-            tools:text="This permission is needed because xyz."
-            tools:visibility="visible" />
+            android:visibility="visible" />
     </LinearLayout>
 
     <Button
@@ -40,8 +39,9 @@
 
     <ImageView
         android:id="@+id/ic_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_check" />
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_check"
+        app:tint="@color/gold_primary" />
 
 </LinearLayout>

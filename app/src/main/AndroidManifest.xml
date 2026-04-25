@@ -66,7 +66,7 @@
         <activity
             android:name=".ui.settings.AddAccountActivity"
             android:exported="false"
-            android:label="@string/Settings_FMDServer_AddAccount" />
+            android:label="@string/Settings_LCLDServer_AddAccount" />
         <activity
             android:name=".ui.DummyCameraxActivity"
             android:exported="false"
@@ -82,13 +82,10 @@
             android:label="@string/Settings_Appearance" />
         <activity
             android:name=".ui.settings.FMDServerActivity"
-            android:label="@string/Settings_FMDServer" />
-        <activity
-            android:name=".ui.settings.OpenCellIdActivity"
-            android:label="@string/Settings_OpenCellId" />
+            android:label="@string/Settings_LCLDServer" />
         <activity
             android:name=".ui.settings.FMDConfigActivity"
-            android:label="@string/Settings_FMDConfig" />
+            android:label="@string/Settings_LCLDConfig" />
         <activity
             android:name="com.mikepenz.aboutlibraries.ui.LibsActivity"
             android:theme="@style/CustomAboutLibrariesStyle" />
@@ -107,6 +104,8 @@
             android:showWhenLocked="true"
             android:turnScreenOn="true" />
         <activity android:name=".ui.onboarding.UpdateboardingModernCryptoActivity" />
+        <activity android:name=".ui.settings.SettingsActivity" android:label="@string/Settings_Settings" />
+        <activity android:name=".ui.settings.CommandsActivity" android:label="Commands" />
         <activity
             android:name=".ui.LockScreenMessage"
             android:showOnLockScreen="true" />
@@ -132,6 +131,7 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
+
         <receiver
             android:name=".receiver.BootReceiver"
             android:directBootAware="true"
@@ -207,26 +207,6 @@
                 android:name="autoStoreLocales"
                 android:value="true" />
         </service>
-
-        <receiver
-            android:name=".receiver.PushReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="org.unifiedpush.android.connector.MESSAGE" />
-                <action android:name="org.unifiedpush.android.connector.UNREGISTERED" />
-                <action android:name="org.unifiedpush.android.connector.NEW_ENDPOINT" />
-                <action android:name="org.unifiedpush.android.connector.REGISTRATION_FAILED" />
-                <action android:name="org.unifiedpush.android.connector.REGISTRATION_REFUSED" />
-            </intent-filter>
-        </receiver>
-
-        <provider
-            android:name="rikka.shizuku.ShizukuProvider"
-            android:authorities="${applicationId}.shizuku"
-            android:enabled="true"
-            android:exported="true"
-            android:multiprocess="false"
-            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
 
     </application>
 

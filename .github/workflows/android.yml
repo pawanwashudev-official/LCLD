@@ -1,7 +1,16 @@
-﻿name: Android CI Build
+name: Build and Release LCLD APK
 
 on:
+  push:
+    branches:
+      - '**' # Triggers on push to any branch
   workflow_dispatch: # Allows manual trigger from the Actions tab
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build:
@@ -19,11 +28,44 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Build Debug APK
-      run: ./gradlew assembleProdDebug
+    - name: Decode Keystore
+      env:
+        KEYSTORE_BASE64: ${{ secrets.KEYSTORE }}
+      run: |
+        echo $KEYSTORE_BASE64 | base64 --decode > keystore.jks
 
-    - name: Upload Debug APK
+    - name: Build Release APK
+      env:
+        KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+        KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+        KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      run: ./gradlew assembleProdRelease -Pandroid.injected.signing.store.file=$(pwd)/keystore.jks -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD -Pandroid.injected.signing.key.alias=$KEY_ALIAS -Pandroid.injected.signing.key.password=$KEY_PASSWORD
+
+    - name: Upload Release APK Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: LCLD-Debug-APK
-        path: app/build/outputs/apk/prod/debug/*.apk
+        name: LCLD-Release-APK
+        path: app/build/outputs/apk/prod/release/*.apk
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download APK from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: LCLD-Release-APK
+          path: apk_files
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: "v1.0.0-${{ github.sha }}"
+          name: "LCLD Release v1.0.0-${{ github.sha }}"
+          files: |
+            apk_files/*.apk
+          generate_release_notes: true

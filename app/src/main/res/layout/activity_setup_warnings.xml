@@ -2,18 +2,22 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
+            android:background="@android:color/transparent"
             app:title="@string/setup_warnings_title" />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -22,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
+        android:background="@android:color/transparent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -30,50 +35,72 @@
             android:layout_margin="@dimen/margin_normal"
             android:orientation="vertical">
 
-            <!-- Recommendations -->
-
-            <TextView
-                style="@style/FMD.Text.SectionTitle"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_small"
-                android:text="@string/setup_recommendations_title" />
-
-            <include
-                android:id="@+id/push"
-                layout="@layout/warning_push_distributor" />
-
-            <include
-                android:id="@+id/connectivity"
-                layout="@layout/warning_connectivity_check" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
                 android:layout_marginBottom="@dimen/margin_normal"
-                android:background="?android:attr/listDivider" />
+                app:cardBackgroundColor="#40FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#60FFFFFF">
 
-            <!-- Permissions -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_normal">
 
-            <TextView
-                android:id="@+id/permissions_required_title"
-                style="@style/FMD.Text.SectionTitle"
+                    <TextView
+                        style="@style/LCLD.Text.SectionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_small"
+                        android:text="@string/setup_recommendations_title" />
+
+                    <include
+                        android:id="@+id/connectivity"
+                        layout="@layout/warning_connectivity_check" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/missing_permissions_title" />
+                app:cardBackgroundColor="#40FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#60FFFFFF">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_small"
-                android:text="@string/missing_permissions_description" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_normal">
 
-            <LinearLayout
-                android:id="@+id/permissions_required_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_normal"
-                android:orientation="vertical" />
+                    <TextView
+                        android:id="@+id/permissions_required_title"
+                        style="@style/LCLD.Text.SectionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/missing_permissions_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:text="@string/missing_permissions_description" />
+
+                    <LinearLayout
+                        android:id="@+id/permissions_required_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_normal"
+                        android:orientation="vertical" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
 
