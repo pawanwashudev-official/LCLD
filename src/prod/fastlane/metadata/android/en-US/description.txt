@@ -1,33 +1,34 @@
-I lost my new phone.
-And because I don't use Google Services I couldn't locate it and my phone was gone for good.
-In the hope that this doesn't happen again, I developed this application, so that I can locate the phone via SMS.
+🛡️ LCLD: Locate & Control Lost Device
 
-Features:
+Take absolute control of your device's security with LCLD. Whether your phone is lost or stolen, LCLD provides powerful, privacy-focused tools to help you find and manage it—even without an internet connection.
 
-- Locate the device (using GPS or cellular location)
-- Lock the device
-- Let the device ring
-- Take pictures with the device's camera to see its surroundings
-- Factory-reset the device
+Why choose LCLD?
+
+Most device tracking apps rely on proprietary services and constant data connections. LCLD is built for independence, privacy, and reliability. It works seamlessly via SMS commands, making it the perfect solution for offline situations or de-Googled devices.
+
+Key Features:
+
+📍 INSTANT LOCATION: Get real-time GPS coordinates via SMS or web.
+🔊 FORCED RINGING: Find your phone even if it's on Silent or DND.
+📸 REMOTE SNAPSHOTS: Use the front or back camera to see surroundings or identify who has your device.
+🔒 REMOTE LOCKING: Secure your phone with a custom message and PIN.
+🧹 SECURE WIPE: Protect your privacy with a full remote factory reset.
+📡 OFFLINE CONTROL: No internet? No problem. Full control via SMS.
+🔒 PRIVACY FIRST: Open-source and self-hostable. Your location is your business.
 
 Usage:
 
-You can control FMD (and thus your phone) either via SMS or via FMD Server.
-You send a command to the phone (e.g. "fmd ring") and the phone executes it.
+Control LCLD easily via SMS or through a secure web interface. 
 
-For SMS you can either define a list of trusted contacts (phone numbers) that are allowed to send commands.
-Or you can set a PIN to allow anonymous usage.
-Then non-trusted phone numbers can also send commands by including the PIN in the message.
-This is useful because now if you lose your phone, you can ask a random person for help to wipe your phone remotely.
-If you simply text "fmd" to your phone FMD will reply with a text listing the available commands.
+For SMS control:
+- Add trusted contacts for automatic authorization.
+- Use a secure PIN to allow commands from any phone.
+- Text "fmd help" to your phone to see all available commands.
 
-With FMD Server you get a web interface to send commands, to view the location of your device on a map,
-and to view pictures taken by the device.
-You can self-host FMD Server.
-For more details, see: https://gitlab.com/fmd-foss/fmd-server
+For Web control:
+- Connect to a public or self-hosted FMD Server for map-based tracking and photo viewing.
 
-Disclaimer:
+LCLD is the ultimate companion for anyone who values security and privacy.
 
-This app is provided on a best effort basis.
-We hope it is useful, we use it ourselves, but this is a hobby project
-and we can't guarantee that it will work when you need it the most.
+Secure your device today with LCLD!
+Developed with ❤️ by Pawan Washudev
