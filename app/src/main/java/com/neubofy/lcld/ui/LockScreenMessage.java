@@ -16,16 +16,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.neubofy.lcld.R;
-import com.neubofy.lcld.data.Settings;
 import com.neubofy.lcld.data.SettingsRepository;
-import com.neubofy.lcld.services.TheftService;
 import com.neubofy.lcld.utils.SingletonHolder;
 
 public class LockScreenMessage extends FmdActivity {
 
     public static final String CUSTOM_TEXT = "CUSTOM_TEXT";
     private SettingsRepository settings;
-    private EditText editTextPin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,29 +45,13 @@ public class LockScreenMessage extends FmdActivity {
             textView.setText(message);
         }
 
-        editTextPin = findViewById(R.id.editTextPin);
         Button buttonUnlock = findViewById(R.id.buttonUnlock);
 
         buttonUnlock.setOnClickListener(v -> {
-            String enteredPin = editTextPin.getText().toString();
-            String savedPin = (String) settings.get(Settings.SET_THEFT_MODE_PIN);
-            String generalPin = (String) settings.get(Settings.SET_PIN);
-
-            if (enteredPin.equals(savedPin) || enteredPin.equals(generalPin)) {
-                stopTheft();
-            } else {
-                Toast.makeText(this, "Incorrect PIN", Toast.LENGTH_SHORT).show();
-            }
+            finish();
         });
         
         hideSystemUI();
-    }
-
-    private void stopTheft() {
-        Intent stopIntent = new Intent(this, TheftService.class);
-        stopIntent.setAction(TheftService.ACTION_STOP_THEFT);
-        startService(stopIntent);
-        finish();
     }
 
     @Override

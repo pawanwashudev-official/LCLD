@@ -42,15 +42,12 @@ class PermissionView @JvmOverloads constructor(
 
         binding.permName.text = context.getString(p.name)
 
-        binding.icInfo.setOnClickListener {
-            val description = p.description
-            if (description != null) {
-                MaterialAlertDialogBuilder(context)
-                    .setTitle(p.name)
-                    .setMessage(description)
-                    .setPositiveButton(android.R.string.ok, null)
-                    .show()
-            }
+        val descId = p.description
+        if (descId != null) {
+            binding.permDescription.text = context.getString(descId)
+            binding.permDescription.visibility = View.VISIBLE
+        } else {
+            binding.permDescription.visibility = View.GONE
         }
 
         if (p.isGranted(context)) {

@@ -29,11 +29,12 @@ class BootReceiver : BroadcastReceiver() {
 
             val settings = SettingsRepository.getInstance(context)
             if (settings.get(com.neubofy.lcld.data.Settings.SET_THEFT_MODE_ACTIVE) == true) {
-                val theftIntent = Intent(context, com.neubofy.lcld.services.TheftService::class.java)
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    context.startForegroundService(theftIntent)
-                } else {
-                    context.startService(theftIntent)
+                // To keep it simple, we just re-execute the ring command via its Activity
+                // since the background service was removed.
+                try {
+                    com.neubofy.lcld.ui.RingerActivity.newInstance(context, com.neubofy.lcld.commands.RING_DURATION_LONG_SECS)
+                } catch (e: Exception) {
+                    context.log().e(TAG, "Failed to start RingerActivity on boot: \${e.message}")
                 }
             }
 

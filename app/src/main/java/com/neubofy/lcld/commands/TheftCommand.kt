@@ -6,13 +6,12 @@ import com.neubofy.lcld.R
 import com.neubofy.lcld.data.Settings
 import com.neubofy.lcld.data.SettingsRepository
 import com.neubofy.lcld.permissions.LocationPermission
-import com.neubofy.lcld.services.TheftService
 import com.neubofy.lcld.transports.Transport
 
 class TheftCommand(context: Context) : Command(context) {
 
     override val keyword = "theft"
-    override val usage = "theft [recovery_pin]"
+    override val usage = "theft"
     override val icon = R.drawable.ic_security
     override val shortDescription = R.string.command_theft_description
     override val requiredPermissions = listOf(LocationPermission())
@@ -21,10 +20,6 @@ class TheftCommand(context: Context) : Command(context) {
         val context = context
         val settings = SettingsRepository.getInstance(context)
         
-        // Use PIN from command if provided, else use default app PIN
-        val pin = if (args.isNotEmpty()) args[0] else (settings.get(Settings.SET_PIN) as String)
-        
-        settings.set(Settings.SET_THEFT_MODE_PIN, pin)
         settings.set(Settings.SET_THEFT_MODE_ACTIVE, true)
 
         // Trigger Location Update first
@@ -39,12 +34,8 @@ class TheftCommand(context: Context) : Command(context) {
         val dndCommand = NoDisturbCommand(context)
         dndCommand.execute(listOf("off"), transport)
 
-        // Start Background Service for looping Ring/Flash/Vibrate
-        val theftIntent = Intent(context, TheftService::class.java)
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            context.startForegroundService(theftIntent)
-        } else {
-            context.startService(theftIntent)
-        }
+        // Trigger Ring Command for looping Ring and locking
+        val ringCommand = RingCommand(context)
+        ringCommand.execute(listOf("long"), transport)
     }
 }

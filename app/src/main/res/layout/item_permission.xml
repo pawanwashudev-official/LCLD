@@ -23,25 +23,12 @@
             android:textStyle="bold"
             tools:text="Location" />
 
-        <!-- Description hidden, replaced by info icon popup -->
         <TextView
             android:id="@+id/perm_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone" />
+            android:visibility="visible" />
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/ic_info"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:padding="4dp"
-        android:src="@drawable/ic_info"
-        android:layout_marginEnd="8dp"
-        app:tint="@color/gold_primary"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="?attr/selectableItemBackgroundBorderless" />
 
     <Button
         android:id="@+id/button_grant"
