@@ -1,31 +1,35 @@
-# 🚀 LCLD v1.0.0 - Initial Release
+# 🚀 LCLD v1.0.0 - The Evolution of Mobile Security
 
-We are excited to announce the first official release of **LCLD (Locate & Control Lost Device)**! 
+We are proud to release **LCLD (Locate & Control Lost Device)**, a massive leap forward in privacy-first Android security. Built on the solid foundation of FMD, LCLD introduces critical enhancements designed to make your device un-stealable and your data un-reachable.
 
-LCLD is a powerful, privacy-focused security app designed to help you regain control over your lost or stolen Android device. By combining offline SMS control with modern web tracking, LCLD offers a level of security and flexibility that standard "Find My Device" apps simply can't match.
+## 🌟 Major Enhancements in this Release:
 
-## 🌟 Key Features in this Release:
+### 1. 🛑 Exclusive: THEFT MODE
+The ultimate defense. Sending the `theft` command triggers a proactive, simultaneous security protocol:
+- **Instant Multi-Action:** Locks the device, starts max-volume siren, and initiates aggressive tracking all at once.
+- **Boot Persistence:** Even if the device is restarted, LCLD resumes the lock and siren immediately. The only way to stop it is to unlock the device with your credentials.
 
-- **Offline-First Control:** Control your device via SMS commands without needing a data connection.
-- **Privacy-Centric:** No tracking by default. You choose where your location data goes.
-- **Remote Camera Snap:** Capture photos of the surroundings or the person holding your device.
-- **Precision Tracking:** Get real-time GPS coordinates via SMS or the web.
-- **Remote Ringer:** Force your phone to ring at maximum volume, even if it's on silent.
-- **Remote Lock & Wipe:** Secure your device with a custom message or perform a full factory reset if needed.
-- **Public FMD Server Support:** Seamless integration with the free [FMD Server](https://server.fmd-foss.org) for web-based tracking.
-- **De-Googled Support:** Fully functional on devices without Google Play Services.
+### 2. 🚨 Unstoppable Siren
+The standard ring command has been upgraded to a high-security siren:
+- **Forced 100% Volume:** Automatically overrides all volume settings to maximum.
+- **Anti-Tamper:** Re-mutes itself if the volume keys are pressed.
+- **Secure Stop:** Only an authorized device unlock can silence the siren.
 
-## 🛠️ How to Get Started:
+### 3. ⚡ Native Server Integration (No Extra Apps!)
+We have removed the requirement for a secondary app (Push Distributor/UnifiedPush) to receive server commands. LCLD now handles all push communications natively, making it more efficient, battery-friendly, and easier to set up.
 
-1. **Download:** Grab the `LCLD-v1.0.0.apk` from the assets below.
-2. **Setup PIN:** Open the app and set a secure PIN for SMS commands.
-3. **Grant Permissions:** Ensure Location, SMS, Camera, and Device Admin permissions are granted for full functionality.
-4. **Trusted Contacts:** Add at least one trusted phone number to send commands from.
-5. **(Optional) Connect to Server:** For web tracking, register an account on the FMD Server and link your device.
+### 4. 🎨 Elegant New UI/UX
+A complete visual overhaul. The app now features a modern, clean, and elegant interface that makes security settings intuitive and accessible for everyone.
 
-## ❤️ Acknowledgements:
-LCLD is built upon the incredible open-source work of the **Nulide** team and their **Find My Device (FMD)** project. We thank them for providing such a robust foundation for mobile security.
+### 5. 🛠️ Simplified Setup
+We've streamlined the onboarding process. Get your device secured with all necessary permissions and configurations in just a few taps.
+
+## 📦 Assets
+- **LCLD-v1.0.0.apk:** The main installation file.
+
+## ❤️ Acknowledgements
+A special thanks to the **Nulide** team for the original FMD project. LCLD takes their vision and pushes it to the next level for the ultimate user security.
 
 ---
-**Secure your device today with LCLD!**
+**Your device. Your control. Unstoppable security.**
 **Developed by Pawan Washudev**
