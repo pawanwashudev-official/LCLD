@@ -60,12 +60,3 @@ jobs:
         with:
           name: LCLD-Release-APK
           path: apk_files
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: "v1.0.0-${{ github.sha }}"
-          name: "LCLD Release v1.0.0-${{ github.sha }}"
-          files: |
-            apk_files/*.apk
-          generate_release_notes: true
