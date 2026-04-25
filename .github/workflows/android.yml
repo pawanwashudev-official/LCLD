@@ -1,9 +1,6 @@
 name: Build and Release LCLD APK
 
 on:
-  push:
-    branches:
-      - '**' # Triggers on push to any branch
   workflow_dispatch: # Allows manual trigger from the Actions tab
 
 permissions:
@@ -50,7 +47,7 @@ jobs:
   release:
     needs: build
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    if: github.event_name == 'workflow_dispatch'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
