@@ -2,6 +2,7 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Android](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com)
+[![Downloads](https://img.shields.io/github/downloads/pawanwashudev-official/LCLD/total.svg)](https://github.com/pawanwashudev-official/LCLD/releases)
 [![Open Source](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red.svg)](https://github.com/pawanwashudev-official/LCLD)
 
 **LCLD (Locate & Control Lost Device)** is the ultimate privacy-focused, offline-first security solution for your Android device. We've taken the core foundation of open-source tracking and completely overhauled it for the modern user.
